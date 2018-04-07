@@ -1,4 +1,4 @@
-<!doctype html>
+s<!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -85,7 +85,6 @@
                 <div class="links">
                     <a href="{{ url('/stock') }}">Stock</a>
                     <a href="/order">Order</a>
-                    <a href="#">Customer</a>
                     <a href="{{ url('/design') }}">Design</a>
                 </div>
             </div>
