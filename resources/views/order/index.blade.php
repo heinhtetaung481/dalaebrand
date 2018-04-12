@@ -35,15 +35,15 @@
                                     <td> {{ $order->customer->address }}</td>
                                     <td>{{ $order->status }}</td>
                                     <td>
-                                    	
+
                                     	<button class="btn btn-warning" onclick="orderDetail({{ $order->id }})">Details</button>
-                                    	
+
                                       @if($order->status == "pending" || $order->status == "confirm")
-                                      
+
                                         <a href="/order/{{ $order->id }}/edit" class="btn btn-info">Edit</a>
 
                                       @endif
-                                        
+
                                         <form action="/order/{{ $order->id }}" method="post" style="display:inline;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
@@ -63,7 +63,7 @@
 <!-- Modal Dialogue for Order Detail -->
 
 <div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="orderDetailModal">Order Detail</h5>
@@ -72,8 +72,8 @@
         </button>
       </div>
       <div class="modal-body">
-      	
-      	
+
+
       	<div>
         Order ID: <span id="orderId"></span>
       	</div>
@@ -109,12 +109,12 @@
 					</tr>
 				</thead>
 				<tbody id="tbody">
-					 
+
 				</tbody>
-			</table> 
+			</table>
       	</div>
-      	
-      
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -134,7 +134,7 @@
         {
             url:"order/"+id,
             type:'GET',
-    
+
         }).done(
             function (data){
 
@@ -150,19 +150,19 @@
               $('#tbody').empty();
 
             	for (var i = 1; i < data.length; i++){
-            		
+
             		var orderitem = data[i];
 
                 $('#tbody').append($('<tr>'));
-                $('#tbody').append($('<td>'+orderitem.gender+' '+orderitem.type+'</td>'));
-                $('#tbody').append($('<td>'+orderitem.color+'</td>'));
-                $('#tbody').append($('<td>'+orderitem.size+'</td>'));
-                $('#tbody').append($('<td>'+orderitem.quantity+'</td>'));
-                $('#tbody').append($('<td>'+orderitem.price+'</td>'));
-                $('#tbody').append($('<td>'+orderitem.design_name+'</td>'));
-                $('#tbody').append($('<td>'+orderitem.remarks+'</td>'));
-                $('#tbody').append($('</tr>'));
-            		
+                $('#tbody tr:last').append($('<td>'+orderitem.gender+' '+orderitem.type+'</td>'));
+                $('#tbody tr:last').append($('<td>'+orderitem.color+'</td>'));
+                $('#tbody tr:last').append($('<td>'+orderitem.size+'</td>'));
+                $('#tbody tr:last').append($('<td>'+orderitem.quantity+'</td>'));
+                $('#tbody tr:last').append($('<td>'+orderitem.price+'</td>'));
+                $('#tbody tr:last').append($('<td>'+orderitem.design_name+'</td>'));
+                $('#tbody tr:last').append($('<td>'+orderitem.remarks+'</td>'));
+                $('#tbody tr:last').append($('</tr>'));
+
             	}
                 $("#orderDetailModal").modal("show");
 
