@@ -19,7 +19,7 @@
                         <thead>
                             <tr>
                                 <th>Name Test</th>
-                                <th>Type</th>
+                                <th>Type Test</th>
                                 <th>Color</th>
                                 <th>Size</th>
                                 <th>Quantity</th>
