@@ -18,7 +18,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Name Test</th>
                                 <th>Type</th>
                                 <th>Color</th>
                                 <th>Size</th>
@@ -38,7 +38,7 @@
                                     <td>{{ $item->price }}</td>
                                     <td>
                                         <button onclick="stockEdit({{ $item->id }})" class="btn btn-info">Edit</button>
-                                        
+
                                         <form action="{{ route('stock.destroy',[$item->id]) }}" method="post" style="display:inline;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
@@ -87,7 +87,7 @@
             <div class="form-group">
                 <label for="type">Item Type:</label>
                 <select class="form-control" name="type" id="type">
-                    
+
                 </select>
             </div>
 
@@ -151,7 +151,7 @@
             <div class="form-group">
                 <label for="type">Item Type:</label>
                 <select class="form-control" name="type" id="editType">
-                    
+
                 </select>
             </div>
 
@@ -192,7 +192,7 @@
         {
             url:"stock/"+id+"/edit",
             type:'GET',
-    
+
         }).done(
             function (data){
                 $("#edititem").attr("action","/stock/"+data[0].id);
