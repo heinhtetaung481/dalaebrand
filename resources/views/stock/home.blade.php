@@ -19,8 +19,11 @@
                         <thead>
                             <tr>
                                 <th>Name Test</th>
-                                <th>Type</th>
+<<<<<<< HEAD
+                                <th>Type Test</th>
                                 <th>Color test</th>
+=======
+>>>>>>> af7d9acb4ba80b734c06c27ce5e43f1d644e353c
                                 <th>Size</th>
                                 <th>Quantity</th>
                                 <th>price</th>
