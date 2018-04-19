@@ -42,7 +42,7 @@ class ItemsController extends Controller
         $item = Item::where([['size', $request->size],['color', $request->color],['itemtype_id', $request->type]])->get();
 
         if (count($item)) {
-            
+
             return redirect()->back()->withErrors(array('message' => 'This item is already added. Please try to edit the item'));
 
         }else{
@@ -79,14 +79,14 @@ class ItemsController extends Controller
      */
     public function edit($id)
     {
- 
+
         $item = DB::table('itemtypes')
                     ->join('items', 'items.itemtype_id','=','itemtypes.id')
                     ->select('items.id','items.color','items.size','items.price','items.quantity','itemtypes.gender','itemtypes.type','itemtypes.name')
                     ->where('items.id','=',$id)
                     ->get();
 
-        return response()->json($item); 
+        return response()->json($item);
     }
 
     /**

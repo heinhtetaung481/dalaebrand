@@ -39,5 +39,4 @@ Route::get('/oitemp/{id}', 'OitempController@destroy');
 
 Route::resource('/design', 'DesignsController');
 
-
-
+Route::resource('/dashboard', 'ItemsController');
