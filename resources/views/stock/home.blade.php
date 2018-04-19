@@ -20,7 +20,7 @@
                             <tr>
                                 <th>Name Test</th>
                                 <th>Type</th>
-                                <th>Color</th>
+                                <th>Color test</th>
                                 <th>Size</th>
                                 <th>Quantity</th>
                                 <th>price</th>
