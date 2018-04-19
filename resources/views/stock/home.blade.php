@@ -21,7 +21,7 @@
                                 <th>Name Test</th>
                                 <th>Type Test</th>
                                 <th>Color test</th>
-                                <th>Size</th>
+                                <th>Size test</th>
                                 <th>Quantity</th>
                                 <th>price</th>
                                 <th></th>
