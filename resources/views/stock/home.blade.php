@@ -22,7 +22,6 @@
                                 <th>Color</th>
                                 <th>Size</th>
                                 <th>Quantity</th>
-                                <th>price</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -34,7 +33,6 @@
                                     <td> {{ $item->color }}</td>
                                     <td> {{ $item->size }}</td>
                                     <td> {{ $item->quantity }}</td>
-                                    <td>{{ $item->price }}</td>
                                     <td>
                                         <button onclick="stockEdit({{ $item->id }})" class="btn btn-info">Edit</button>
 
@@ -100,11 +98,6 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="text" name="price" class="form-control" id="price">
-            </div>
-
-            <div class="form-group">
                 <label for="quantity">Quantity:</label>
                 <input type="text" name="quantity" class="form-control" id="quantity">
             </div>
@@ -164,11 +157,6 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="text" id="editPrice" class="form-control" name="price">
-            </div>
-
-            <div class="form-group">
                 <label for="quantity">Quantity:</label>
                 <input type="text" id="editQuantity" class="form-control" name="quantity">
             </div>
@@ -199,7 +187,6 @@
                 $("#editType option[value="+data[0].type+"]").prop('selected', true);
                 $("#editColor").val(data[0].color);
                 $("#editSize").val(data[0].size);
-                $("#editPrice").val(data[0].price);
                 $("#editQuantity").val(data[0].quantity);
                 //$("input[name='");
                 $("#editItemModal").modal("show");

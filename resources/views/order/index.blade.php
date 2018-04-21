@@ -93,6 +93,12 @@
         <div>
           Status: <span id="status"></span>
         </div>
+        <div>
+          Discount: <span id="discount"></span>
+        </div>
+        <div>
+          Remarks: <span id="remarks"></span>
+        </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -142,6 +148,8 @@
               $('#cusAddress').html(data[0].address);
               $('#cusEmail').html(data[0].email);
               $('#status').html(data[0].status);
+              $('#discount').html(data[0].discount);
+              $('#remarks').html(data[0].remarks);
 
 
               $('#tbody').empty();

@@ -17,7 +17,6 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->integer('size');
             $table->text('color');
-            $table->integer('price');
             $table->integer('quantity');
             $table->integer('itemtype_id')->unsigned()->nullable();
             $table->foreign('itemtype_id')->references('id')->on('itemtypes');

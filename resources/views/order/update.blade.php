@@ -34,6 +34,14 @@
                 <label for="date">Date:</label>
                 <input type="date" name="date" class="form-control" value="{{ date('Y-m-d', strtotime($order->orderdate)) }}">
             </div>
+            <div class="form-group">
+                <label for="discount">Discount:</label>
+                <input type="text" name="discount" class="form-control" value="{{ $order->discount }}">
+            </div>
+            <div class="form-group">
+                <label for="remarks">Remarks:</label>
+                <input type="text" name="remarks" class="form-control" value="{{ $order->remarks }}">
+            </div>
             </div>
 
             <div class="col-md-6 form-group">
@@ -59,7 +67,7 @@
                         <th>Color</th>
                         <th>Size</th>
                         <th>Quantity</th>
-                        <th>Unit Price</th>
+                        <th>Price</th>
                         <th>Design</th>
                         <th>Remarks</th>
                         <th></th>
@@ -76,7 +84,7 @@
                          <td>{{ $oitemp->item->color }}</td>
                          <td>{{ $oitemp->item->size }}</td>
                          <td>{{ $oitemp->quantity }}</td>
-                         <td>{{ $oitemp->item->price }}</td>
+                         <td>{{ $oitemp->price }}</td>
                          <td>{{ $oitemp->design->name }}</td>
                          <td>{{ $oitemp->remarks }}</td>
                          <td><span class="btn btn-danger glyphicon glyphicon-minus" onclick="deleteOrderItemTemp({{ $oitemp->id }})"></span></td>
@@ -109,7 +117,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-1">
                 <label for="size">Size:</label>
                 <select name="size" class="form-control" id="size" onchange="checkColor()">
 
@@ -120,6 +128,11 @@
                 <label for="color">Color:</label>
                 <select name="color" class="form-control" id="color">
                 </select>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="price">Price:</label>
+                <input type="text" name="price" class="form-control" id="price">
             </div>
 
             <div class="form-group col-md-2">
@@ -291,6 +304,7 @@
         var itemtype = $('#itemType').val();
         var size = $('#size').val();
         var color = $('#color').val();
+        var price = $('#price').val();
         var quantity = $('#quantity').val();
         var remarks = $('#remarks').val();
         var design = $('#design').val();
@@ -300,7 +314,7 @@
 
             url:"/oitemp",
             type:'post',
-            data:{gender:gender,itemtype:itemtype,size:size,color:color,quantity:quantity,remarks:remarks,design:design,_token:'{{csrf_token()}}'},
+            data:{gender:gender,itemtype:itemtype,size:size,color:color,price:price,quantity:quantity,remarks:remarks,design:design,_token:'{{csrf_token()}}'},
             success:function(items){
 
                 if(items.error){
@@ -329,6 +343,7 @@
                 $('#itemType').empty();
                 $('#size').empty();
                 $('#color').empty();
+                $('#price').empty();
                 $('#remarks').val('');
                 $('#quantity').val('');
             }
