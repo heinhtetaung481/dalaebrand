@@ -15,65 +15,86 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Dalae Brand</a>
+              </div>
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'DalaeBrand') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/stock') }}">Stock</a></li>
-                        <li><a href="{{ url('/order') }}">Order</a></li>
-                        <li><a href="{{ url('/design') }}">Design</a></li>
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
+                </ul>
+              </div>
             </div>
-        </nav>
-@yield('content')
+      </nav>
+<!-- Sidebar Start -->
+      <div class="container-fluid">
+            <div class="row row-offcanvas row-offcanvas-left">
 
+               <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+
+                  <ul class="nav nav-sidebar" role="navigation">
+                    <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                    <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Stock</a></li>
+                    <li>
+                      <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>
+                      <ul class="nav collapse" id="order-detail">
+                        <li><a href="{{ url('/order')}}">View Orders</a></li>
+                        <li><a href="{{ url('/order/create')}}">Make New Order</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#design-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-scissors"></span> Design    	&nbsp; 	&nbsp; 	&nbsp;<span class="caret"></span></a>
+                      <ul class="nav collapse" id="design-detail">
+                        <li><a href="{{ url('/design')}}">View Designs</a></li>
+                        <li><a href="{{ url('/design/create')}}">Add New Design</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+              </div><!--/span-->
+
+              <div class="col-sm-9 col-md-10 main">
+
+                <!--toggle sidebar button-->
+                <p class="visible-xs">
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                </p>
+
+                @yield('content')
+            </div><!--/row-->
+        </div>
+      </div>
     </div>
 
     <!-- Scripts -->

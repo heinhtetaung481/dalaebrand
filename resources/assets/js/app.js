@@ -9,6 +9,8 @@ require('./bootstrap');
 
 require('./image-picker');
 
+require('./dashboard');
+
 window.Vue = require('vue');
 
 /**

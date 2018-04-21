@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -28,10 +27,10 @@
                                 @if($key>0)
                                 <tr>
                                     <td> <img src="/storage/designs/{{ $design->path }}"/>   {{ $design->name }}</td>
-                                    
+
                                     <td>
                                         <!-- <button onclick="stockEdit({{ $design->id }})" class="btn btn-info">Edit</button> -->
-                                        
+
                                         <form action="{{ route('design.destroy',$design->id) }}" method="post" style="display:inline;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
@@ -48,7 +47,6 @@
             </div>
         </div>
     </div>
-</div>
 
  <!-- Modal for Add New Items -->
 
@@ -114,7 +112,7 @@
             <div class="form-group">
                 <label for="type">Item Type:</label>
                 <select class="form-control" name="type" id="editType">
-                    
+
                 </select>
             </div>
 

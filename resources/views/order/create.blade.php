@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="col-md-12">
 	<div class="col-md-6">
 		<form method="POST" action="/order" id="newOrder">
