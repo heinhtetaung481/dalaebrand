@@ -61,7 +61,7 @@
       <div class="container-fluid">
             <div class="row row-offcanvas row-offcanvas-left">
 
-               <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+               <div class="col-sm-3 col-md-2 col-xs-12 sidebar-offcanvas" id="sidebar" role="navigation">
 
                   <ul class="nav nav-sidebar" role="navigation">
                     <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
@@ -73,13 +73,7 @@
                         <li><a href="{{ url('/order/create')}}">Make New Order</a></li>
                       </ul>
                     </li>
-                    <li>
-                      <a href="#design-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-scissors"></span> Design    	&nbsp; 	&nbsp; 	&nbsp;<span class="caret"></span></a>
-                      <ul class="nav collapse" id="design-detail">
-                        <li><a href="{{ url('/design')}}">View Designs</a></li>
-                        <li><a href="{{ url('/design/create')}}">Add New Design</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
                   </ul>
 
               </div><!--/span-->
