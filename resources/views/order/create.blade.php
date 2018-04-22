@@ -14,7 +14,7 @@
 
 	            <div class="form-group">
 	                <label for="cusPhone">Customer Phone:</label>
-	                <input type="phone" name="cusPhone" class="form-control">
+	                <input type="text" name="cusPhone" class="form-control">
 	            </div>
 
 	            <div class="form-group">
@@ -258,7 +258,6 @@
     }
 // Add Order to temp
         function addOrderItemTemp(){
-
 
         var gender = $('#gender').val();
         var itemtype = $('#itemType').val();
