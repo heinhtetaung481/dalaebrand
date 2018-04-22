@@ -3,63 +3,78 @@
 @section('content')
 
 <div class="col-md-12">
-	<div class="col-md-6">
-	<form method="POST" action="/order/{{ $order->id }}" id="updateOrder">
+	<div class="col-md-12">
+	<form class="form-horizontal" method="POST" action="/order/{{ $order->id }}" id="updateOrder">
 
             <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
 
-            <div class="col-md-6">
             <div class="form-group">
-                <label for="cusName">Customer Name:</label>
-                <input type="text" name="cusName" class="form-control" value="{{ $order->customer->name }}">
+                <label for="cusName" class="control-label col-md-2">Customer Name:</label>
+								<div class="col-md-6">
+                	<input type="text" name="cusName" class="form-control" value="{{ $order->customer->name }}">
+								</div>
             </div>
 
             <div class="form-group">
-                <label for="cusPhone">Customer Phone:</label>
-                <input type="phone" name="cusPhone" class="form-control" value="{{ $order->customer->phone }}">
+                <label for="cusPhone" class="control-label col-md-2">Customer Phone:</label>
+								<div class="col-md-6">
+                	<input type="phone" name="cusPhone" class="form-control" value="{{ $order->customer->phone }}">
+								</div>
             </div>
 
             <div class="form-group">
-                <label for="cusAddress">Delivery Address:</label>
-                <input type="text" name="cusAddress" class="form-control" value="{{ $order->customer->address }}">
+                <label for="cusAddress" class="control-label col-md-2">Delivery Address:</label>
+								<div class="col-md-6">
+                	<input type="text" name="cusAddress" class="form-control" value="{{ $order->customer->address }}">
+								</div>
             </div>
 
             <div class="form-group">
-                <label for="cusEmail">Email:</label>
-                <input type="email" name="cusEmail" class="form-control" value="{{ $order->customer->email }}">
+                <label for="cusEmail" class="control-label col-md-2">Email:</label>
+								<div class="col-md-6">
+                	<input type="email" name="cusEmail" class="form-control" value="{{ $order->customer->email }}">
+								</div>
             </div>
 
             <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" name="date" class="form-control" value="{{ date('Y-m-d', strtotime($order->orderdate)) }}">
+                <label for="date" class="control-label col-md-2">Date:</label>
+								<div class="col-md-6">
+                	<input type="date" name="date" class="form-control" value="{{ date('Y-m-d', strtotime($order->orderdate)) }}">
+								</div>
             </div>
             <div class="form-group">
-                <label for="discount">Discount:</label>
-                <input type="text" name="discount" class="form-control" value="{{ $order->discount }}">
+                <label for="discount" class="control-label col-md-2">Discount:</label>
+								<div class="col-md-6">
+                	<input type="text" name="discount" class="form-control" value="{{ $order->discount }}">
+								</div>
             </div>
             <div class="form-group">
-                <label for="remarks">Remarks:</label>
-                <input type="text" name="remarks" class="form-control" value="{{ $order->remarks }}">
-            </div>
-            </div>
-
-            <div class="col-md-6 form-group">
-                <label>Order Status</label>
-                <select class="form-control" name="status" id="status">
-
-                    <option value="pending" @if($order->status == "pending") {{ "selected" }} @endif >Pending</option>
-                    <option value="confirm" @if($order->status == "confirm") {{ "selected" }} @endif >Confirm</option>
-                    <option value="processing">Processing</option>
-                    <option value="delivered">Delivered</option>
-                </select>
+                <label for="remarks" class="control-label col-md-2">Remarks:</label>
+								<div class="col-md-6">
+                	<input type="text" name="remarks" class="form-control" value="{{ $order->remarks }}">
+								</div>
             </div>
 
+            <div class="form-group">
+                <label class="control-label col-md-2">Order Status</label>
+								<div class="col-md-6">
+	                <select class="form-control" name="status" id="status">
+
+	                    <option value="pending" @if($order->status == "pending") {{ "selected" }} @endif >Pending</option>
+	                    <option value="confirm" @if($order->status == "confirm") {{ "selected" }} @endif >Confirm</option>
+	                    <option value="processing">Processing</option>
+	                    <option value="delivered">Delivered</option>
+	                </select>
+								</div>
+            </div>
+						<div class="row">
+							<div class="col-md-3 pull-right">
+								<button class="btn btn-primary order-button" onclick="updateOrder()">Update</button>
+							</div>
+						</div>
             </form>
-					</div>
-					<div class="col-md-6">
-						<button class="btn btn-primary order-button" onclick="updateOrder()">Update</button>
-					</div>
+
         <table class="table table-striped">
                 <thead>
                     <tr>
@@ -100,7 +115,8 @@
         <br>
 
         <form method="POST" action="/oitemp" id="newOrderItem">
-            <div class="form-group col-md-2">
+					<div class="row">
+						<div class="form-group col-md-3">
                 <label for="gender">Gender:</label>
                 <select name="gender" class="form-control" id="gender" onchange="checkGender()">
                     <option selected value="">Choose Gender</option>
@@ -109,7 +125,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label for="itemType">Item Type:</label>
                 <select name="itemType" class="form-control" id="itemType" onchange="checkType()">
 
@@ -117,37 +133,47 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-3">
                 <label for="size">Size:</label>
                 <select name="size" class="form-control" id="size" onchange="checkColor()">
 
                 </select>
             </div>
 
-            <div class="form-group col-md-2">
+						<div class="form-group col-md-3">
                 <label for="color">Color:</label>
                 <select name="color" class="form-control" id="color">
                 </select>
             </div>
 
-            <div class="form-group col-md-1">
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-3">
+								<label for="remarks">Remarks:</label>
+								<input type="text" name="remarks" class="form-control" id="remarks">
+						</div>
+
+            <div class="form-group col-md-3">
                 <label for="price">Price:</label>
                 <input type="text" name="price" class="form-control" id="price">
             </div>
 
-            <div class="form-group col-md-2">
-                <label for="remarks">Remarks:</label>
-                <input type="text" name="remarks" class="form-control" id="remarks">
-            </div>
-
-            <div class="form-group col-md-1">
+						<div class="form-group col-md-3">
                 <label for="quantity">Quantity:</label>
                 <input type="text" name="quantity" class="form-control" id="quantity">
             </div>
-
-						<div class="form-group col-md-1">
+						<div class="form-group col-md-3">
                 <span class="btn btn-primary glyphicon glyphicon-plus" onclick="addOrderItemTemp()" id="plusbutton"></span>
             </div>
+					</div>
+
+
+
+
+
+
+
 
             <div class="form-group col-md-12 design-select-hide design-select">
                 <label for="design">Select Design:</label>

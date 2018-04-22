@@ -8355,8 +8355,8 @@ button.close {
 }
 
 button.order-button {
-  width: 50%;
-  font-size: 4vw;
+  margin-left: 150px;
+  margin-bottom: 15px;
 }
 
 table.table-striped thead {
@@ -8518,7 +8518,7 @@ footer {
 .main {
   padding: 20px;
   background-color: #fff;
-  height: 100vh;
+  height: 100%;
 }
 
 @media (min-width: 768px) {

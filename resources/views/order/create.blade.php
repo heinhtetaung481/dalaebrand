@@ -3,52 +3,66 @@
 @section('content')
 
 <div class="col-md-12">
-	<div class="col-md-6">
-		<form method="POST" action="/order" id="newOrder">
+	<div class="col-md-12">
+		<form class="form-horizontal" method="POST" action="/order" id="newOrder">
 	            {{ csrf_field() }}
-	            <div class="col-md-6">
 	            <div class="form-group">
-	                <label for="cusName">Customer Name:</label>
-	                <input type="text" name="cusName" class="form-control">
+	                <label for="cusName" class="control-label col-md-2">Customer Name:</label>
+									<div class="col-md-6">
+										<input type="text" name="cusName" class="form-control">
+									</div>
 	            </div>
 
 	            <div class="form-group">
-	                <label for="cusPhone">Customer Phone:</label>
-	                <input type="text" name="cusPhone" class="form-control">
+	                <label for="cusPhone" class="control-label col-md-2">Customer Phone:</label>
+									<div class="col-md-6">
+										<input type="text" name="cusPhone" class="form-control">
+									</div>
 	            </div>
 
 	            <div class="form-group">
-	                <label for="cusAddress">Delivery Address:</label>
-	                <input type="text" name="cusAddress" class="form-control">
+	                <label for="cusAddress" class="control-label col-md-2">Delivery Address:</label>
+									<div class="col-md-6">
+										<input type="text" name="cusAddress" class="form-control">
+									</div>
 	            </div>
 
 	            <div class="form-group">
-	                <label for="cusEmail">Email:</label>
-	                <input type="email" name="cusEmail" class="form-control">
+	                <label for="cusEmail" class="control-label col-md-2">Email:</label>
+									<div class="col-md-6">
+										<input type="email" name="cusEmail" class="form-control">
+									</div>
 	            </div>
 
 	            <div class="form-group">
-	                <label for="date">Date:</label>
-	                <input type="date" name="date" class="form-control">
+	                <label for="date" class="control-label col-md-2">Date:</label>
+									<div class="col-md-6">
+										<input type="date" name="date" class="form-control">
+									</div>
 	            </div>
 
                 <div class="form-group">
-                    <label for="discount">Discount:</label>
-                    <input type="text" name="discount" class="form-control">
+                    <label for="discount" class="control-label col-md-2">Discount:</label>
+										<div class="col-md-6">
+											<input type="text" name="discount" class="form-control">
+										</div>
                 </div>
 
                 <div class="form-group">
-                    <label for="remarks">Remarks:</label>
-                    <input type="text" name="remarks" class="form-control">
+                    <label for="remarks" class="control-label col-md-2">Remarks:</label>
+										<div class="col-md-6">
+											<input type="text" name="remarks" class="form-control">
+										</div>
                 </div>
 	            </div>
-
+							<div class="row">
+								<div class="col-md-3 pull-right">
+									<button class="btn btn-primary order-button" onclick="updateOrder()">Order</button>
+								</div>
+							</div>
 
 	    </form>
-	</div>
-	<div class="col-md-6">
-		<button class="btn btn-primary order-button" onclick="updateOrder()">Order</button>
-	</div>
+			
 	<table class="table table-striped">
 		 <thead>
 				 <tr>
