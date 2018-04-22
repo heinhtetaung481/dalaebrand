@@ -39,5 +39,7 @@ Route::get('/oitemp/{id}', 'OitempController@destroy');
 
 Route::resource('/design', 'DesignsController');
 
+Route::get('/datatables/data', 'DatatablesController@orderData')->name('datatables.data');
+
 
 

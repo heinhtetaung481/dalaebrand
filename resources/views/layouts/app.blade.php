@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    
+        
+
 </head>
 <body>
     <div id="app">
@@ -92,6 +100,8 @@
     </div>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>

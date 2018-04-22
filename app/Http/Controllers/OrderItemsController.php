@@ -12,6 +12,7 @@ use App\Customer;
 use App\Oitemp;
 use App\Design;
 
+
 class OrderItemsController extends Controller
 {
     /**
@@ -23,8 +24,9 @@ class OrderItemsController extends Controller
     {
         $orders = Order::get();
 
-        return view('order.index', compact('orders'));
+        return view('order.index');
     }
+
 
     /**
      * Show the form for creating a new resource.

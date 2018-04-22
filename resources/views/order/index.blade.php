@@ -11,46 +11,22 @@
                     <h4>Order</h4>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="orders">
                         <thead>
                             <tr>
-                                <th>OrderID</th>
+                                <th>Id</th>
                                 <th>Date</th>
                                 <th>Customer Name</th>
                                 <th>Phone No.</th>
                                 <th>Address</th>
-                                <th>Status</th>
-                                <th></th>
+                                <th>h</th>
+                                <th>j</th>
+                                <th>i</th>
+                                <!-- <th>Status</th>
+                                <th></th> -->
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach($orders as $order)
-                                <tr>
-                                    <td> {{ $order->id }}</td>
-                                    <td> {{ $order->orderdate->toFormattedDateString() }}</td>
-                                    <td> {{ $order->customer->name }}</td>
-                                    <td> {{ $order->customer->phone }}</td>
-                                    <td> {{ $order->customer->address }}</td>
-                                    <td>{{ $order->status }}</td>
-                                    <td>
-
-                                    	<button class="btn btn-warning" onclick="orderDetail({{ $order->id }})">Details</button>
-
-                                      @if($order->status == "pending" || $order->status == "confirm")
-
-                                        <a href="/order/{{ $order->id }}/edit" class="btn btn-info">Edit</a>
-
-                                      @endif
-
-                                        <form action="/order/{{ $order->id }}" method="post" style="display:inline;">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                        
                     </table>
                 </div>
             </div>
@@ -129,8 +105,31 @@
 
 
 
+<script>
+  
+  $(document).ready(function() {
+
+    $('#orders').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('datatables.data') }}",
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'orderdate', name: 'orderdate' },
+            { data: 'discount', name: 'discount' },
+            { data: 'remarks', name: 'remarks' },
+            { data: 'status', name: 'status' },
+            { data: 'customer_id', name: 'customer_id' },
+            { data: 'created_at', name: 'created_at' },
+            { data: 'updated_at', name: 'updated_at' }
+        ]
+    });
+});
+
+</script>
 
 <script>
+
     function orderDetail(id){
 
         $.ajax(
