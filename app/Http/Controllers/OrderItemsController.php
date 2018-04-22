@@ -58,6 +58,8 @@ class OrderItemsController extends Controller
 
         $orderLastInsertedId = Order::create([
             'orderdate' => $request->date,
+            'discount' => $request->discount,
+            'remarks' => $request->remarks,
             'customer_id' => $cusLastInsertedId->id,
             'status' => "pending",
         ]);
@@ -69,6 +71,7 @@ class OrderItemsController extends Controller
             Orderitem::create([
 
                 'order_id' => $orderLastInsertedId->id,
+                'price' => $oitemp->price,
                 'item_id' => $oitemp->item_id,
                 'quantity' => $oitemp->quantity,
                 'remarks' => $oitemp->remarks,
@@ -95,7 +98,7 @@ class OrderItemsController extends Controller
         
         $order = DB::table('orders')
                     ->join('customers', 'orders.customer_id','=','customers.id')
-                    ->select('orders.id','orders.orderdate','customers.name','customers.phone','orders.status','customers.address','customers.email')
+                    ->select('orders.id','orders.orderdate','customers.name','customers.phone','orders.status','customers.address','customers.email','orders.discount','orders.remarks')
                     ->where('orders.id','=',$id)
                     ->get();
 
@@ -104,7 +107,7 @@ class OrderItemsController extends Controller
                     ->join('itemtypes', 'itemtypes.id','=','items.itemtype_id')
                     ->join('orderitems','orderitems.item_id','=','items.id')
                     ->join('designs', 'orderitems.design_id', '=', 'designs.id')
-                    ->select('items.size','items.color','items.price','orderitems.quantity','designs.name as design_name','orderitems.remarks','itemtypes.type','itemtypes.gender')
+                    ->select('items.size','items.color','orderitems.price','orderitems.quantity','designs.name as design_name','orderitems.remarks','itemtypes.type','itemtypes.gender')
                     ->where('orderitems.order_id','=',$id)
                     ->get();
         $orderitems = $order->merge($items);
@@ -134,6 +137,7 @@ class OrderItemsController extends Controller
             
             Oitemp::create([
             'item_id' => $orderitem->item_id,
+            'price' => $orderitem->price,
             'quantity' => $orderitem->quantity,
             'remarks' => $orderitem->remarks,
             'design_id' => $orderitem->design_id,
@@ -188,6 +192,7 @@ class OrderItemsController extends Controller
 
                 'order_id' => $id,
                 'item_id' => $oitemp->item_id,
+                'price' => $oitemp->price,
                 'quantity' => $oitemp->quantity,
                 'design_id' => $oitemp->design_id,
                 'remarks' => $oitemp->remarks,

@@ -50,7 +50,6 @@ class ItemsController extends Controller
 
                 'size' => $request->size,
                 'color' => $request->color,
-                'price' => $request->price,
                 'quantity' => $request->quantity,
                 'itemtype_id' => $request->type,
 
@@ -82,7 +81,7 @@ class ItemsController extends Controller
  
         $item = DB::table('itemtypes')
                     ->join('items', 'items.itemtype_id','=','itemtypes.id')
-                    ->select('items.id','items.color','items.size','items.price','items.quantity','itemtypes.gender','itemtypes.type','itemtypes.name')
+                    ->select('items.id','items.color','items.size','items.quantity','itemtypes.gender','itemtypes.type','itemtypes.name')
                     ->where('items.id','=',$id)
                     ->get();
 
@@ -102,7 +101,6 @@ class ItemsController extends Controller
 
         $item->size = request('size');
         $item->color = request('color');
-        $item->price = request('price');
         $item->quantity = request('quantity');
         $item->itemtype_id = request('type');
         $item->save();

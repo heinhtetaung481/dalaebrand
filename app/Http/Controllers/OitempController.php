@@ -25,7 +25,7 @@ class OitempController extends Controller
                     ->join('itemtypes', 'itemtypes.id','=','items.itemtype_id')
                     ->join('oitemps','oitemps.item_id','=','items.id')
                     ->join('designs', 'oitemps.design_id', '=', 'designs.id')
-                    ->select('items.size','items.color','items.price','oitemps.quantity','designs.name as design_name','oitemps.remarks','itemtypes.type','itemtypes.gender','oitemps.id')
+                    ->select('items.size','items.color','oitemps.price','oitemps.quantity','designs.name as design_name','oitemps.remarks','itemtypes.type','itemtypes.gender','oitemps.id')
                     ->get();
 
 
@@ -52,6 +52,7 @@ class OitempController extends Controller
 	    		Oitemp::create([
 	    		'item_id' => $item->id,
 	    		'quantity' => $request->quantity,
+	    		'price' => $request->price,
 	    		'remarks' => $request->remarks,
 	    		'design_id' => $request->design,
 
@@ -61,6 +62,7 @@ class OitempController extends Controller
 	    		
 	    		Oitemp::create([
 	    		'item_id' => $item->id,
+	    		'price' => $request->price,
 	    		'quantity' => $request->quantity,
 	    		'remarks' => $request->remarks,
 
@@ -71,6 +73,7 @@ class OitempController extends Controller
 	    		Oitemp::create([
 
 	    		'item_id' => $item->id,
+	    		'price' => $request->price,
 	    		'quantity' => $request->quantity,
 	      		'design_id' => $request->design,
 	      	]);
@@ -80,6 +83,7 @@ class OitempController extends Controller
 	    	Oitemp::create([
 	    	
 	    		'item_id' => $item->id,
+	    		'price' => $request->price,
 	    		'quantity' => $request->quantity,
 	    	]);
 
@@ -89,7 +93,7 @@ class OitempController extends Controller
 	                    ->join('itemtypes', 'itemtypes.id','=','items.itemtype_id')
 	                    ->join('oitemps','oitemps.item_id','=','items.id')
 	                    ->join('designs', 'oitemps.design_id', '=', 'designs.id')
-	                    ->select('items.size','items.color','items.price','oitemps.quantity','designs.name as design_name','oitemps.remarks','itemtypes.type','itemtypes.gender','oitemps.id')
+	                    ->select('items.size','items.color','oitemps.price','oitemps.quantity','designs.name as design_name','oitemps.remarks','itemtypes.type','itemtypes.gender','oitemps.id')
 	                    ->get();
 
 

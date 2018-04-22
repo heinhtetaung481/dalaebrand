@@ -17,6 +17,7 @@ class CreateOItempTable extends Migration
             $table->increments('id');
             $table->integer('item_id');
             $table->integer('quantity');
+            $table->integer('price');
             $table->char('remarks')->default('-');
             $table->integer('design_id')->default(1);
             $table->timestamps();

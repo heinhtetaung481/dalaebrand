@@ -19,6 +19,7 @@ class CreateOrderitemsTable extends Migration
             $table->foreign('order_id')->references('id')->on('orders');
             $table->integer('item_id')->unsigned()->nullable();
             $table->foreign('item_id')->references('id')->on('items');
+            $table->integer('price');
             $table->integer('quantity');
             $table->char('remarks')->default('-');
             $table->integer('design_id')->unsigned()->default(1);
