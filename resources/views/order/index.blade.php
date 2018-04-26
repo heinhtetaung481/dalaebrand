@@ -19,13 +19,17 @@
                                 <th>Customer Name</th>
                                 <th>Phone No.</th>
                                 <th>Address</th>
-                                <th>h</th>
-                                <th>j</th>
-                                <th>i</th>
-                                <!-- <th>Status</th>
-                                <th></th> -->
                             </tr>
                         </thead>
+                        <tfoot>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tfoot>
                         
                     </table>
                 </div>
@@ -116,14 +120,20 @@
         columns: [
             { data: 'id', name: 'id' },
             { data: 'orderdate', name: 'orderdate' },
-            { data: 'discount', name: 'discount' },
+            { data: 'customer', name: 'customer' },
             { data: 'remarks', name: 'remarks' },
-            { data: 'status', name: 'status' },
-            { data: 'customer_id', name: 'customer_id' },
-            { data: 'created_at', name: 'created_at' },
-            //{ data: 'updated_at', name: 'updated_at' },
-            { data: 'button', name: 'button'}
-        ]
+            { data: 'button', name: 'button'},
+        ],
+        initComplete: function () {
+            this.api().columns().every(function () {
+                var column = this;
+                var input = document.createElement("input");
+                $(input).appendTo($(column.footer()).empty())
+                .on('change', function () {
+                    column.search($(this).val(), false, false, true).draw();
+                });
+            });
+        }
     });
 });
 

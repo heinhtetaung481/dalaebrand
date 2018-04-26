@@ -13,6 +13,17 @@ class DatatablesController extends Controller
 
     	$orders = Order::get();
 
-    	return Datatables::of($orders)->addColumn('button','<button class="btn btn-info">edit</button>')->rawColumns(['button'])->make(true);
+    	return Datatables::of($orders)
+    		->addColumn('button', function($order) { 
+
+    			return '<button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button>';
+    			})
+    		->addColumn('customer', function($order) {
+
+    			return $order->customer->name;
+
+    			})
+    		->rawColumns(['button'])
+    		->make(true);
     }
 }
