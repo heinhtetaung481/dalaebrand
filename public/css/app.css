@@ -8532,3 +8532,11 @@ footer {
   margin-top: 0;
 }
 
+td.orderid input {
+  width: 40px !important;
+}
+
+td.orderstatus input {
+  width: 60px;
+}
+

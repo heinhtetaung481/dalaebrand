@@ -16,13 +16,22 @@ class DatatablesController extends Controller
     	return Datatables::of($orders)
     		->addColumn('button', function($order) { 
 
-    			return '<button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button>';
+    			return '<button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button> <button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button> <button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button>';
     			})
-    		->addColumn('customer', function($order) {
+    		->addColumn('customer_name', function($order) {
 
     			return $order->customer->name;
 
     			})
+            ->addColumn('customer_phone', function($order) {
+                return $order->customer->phone;
+            })
+            ->addColumn('customer_address', function($order) {
+                return $order->customer->address;
+            })
+            ->editColumn('orderdate', function ($order) {
+                return $order->orderdate->format('d/m/Y');
+            })
     		->rawColumns(['button'])
     		->make(true);
     }

@@ -12,6 +12,7 @@
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped" id="orders">
+                      
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -19,18 +20,23 @@
                                 <th>Customer Name</th>
                                 <th>Phone No.</th>
                                 <th>Address</th>
+                                <th>status</th>
+                                <th></th>
                             </tr>
                         </thead>
+
                         <tfoot>
-                          <tr>
+                        <tr>
+                            <td class="orderid"></td>
+                            <td class="non-searchable"></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td  class="non-searchable"></td>
+                            <td class="orderstatus"></td>
+                            <td class="non-searchable"></td>
                           </tr>
                         </tfoot>
-                        
+
                     </table>
                 </div>
             </div>
@@ -120,18 +126,23 @@
         columns: [
             { data: 'id', name: 'id' },
             { data: 'orderdate', name: 'orderdate' },
-            { data: 'customer', name: 'customer' },
-            { data: 'remarks', name: 'remarks' },
-            { data: 'button', name: 'button'},
+            { data: 'customer_name', name: 'customer_name' },
+            { data: 'customer_phone', name: 'customer_phone' },
+            { data: 'customer_address', name: 'customer_address'},
+            { data: 'status', name: 'status'},
+            { data: 'button', name: 'button'}
         ],
         initComplete: function () {
             this.api().columns().every(function () {
                 var column = this;
+                var columnClass = column.footer().className;
+                if (columnClass !== 'non-searchable') {
                 var input = document.createElement("input");
                 $(input).appendTo($(column.footer()).empty())
                 .on('change', function () {
                     column.search($(this).val(), false, false, true).draw();
                 });
+              }
             });
         }
     });
