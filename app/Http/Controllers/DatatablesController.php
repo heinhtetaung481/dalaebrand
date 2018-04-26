@@ -16,7 +16,24 @@ class DatatablesController extends Controller
     	return Datatables::of($orders)
     		->addColumn('button', function($order) { 
 
-    			return '<button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button> <button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button> <button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button>';
+                $detail = '<button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button>';
+
+                $edit = '';
+
+                if ($order->status == "pending" || $order->status == "confirm") {
+
+                   $edit = '<a href="/order/'. $order->id .'/edit" class="btn btn-info">Edit</a>';
+
+                }
+
+                $delete = '<form action="/order/'.$order->id.'" method="post" style="display:inline;">
+                                                
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>';
+
+    			return $detail.$edit.$delete;
+
     			})
     		->addColumn('customer_name', function($order) {
 
