@@ -16,6 +16,8 @@ class ItemsController extends Controller
      */
     public function index()
     {
+
+        // return $dataTable->render('stock.home');
         $items = Item::get();
         return view('stock.home',compact('items'));
     }

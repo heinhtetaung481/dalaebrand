@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Order;
+use App\Item;
 
 class DatatablesController extends Controller
 {
@@ -51,5 +52,37 @@ class DatatablesController extends Controller
             })
     		->rawColumns(['button'])
     		->make(true);
+    }
+
+    public function stockData(){
+
+        $stocks = Item::get();
+
+        return Datatables::of($stocks)
+
+            ->addColumn('button', function($stock) {
+
+                $edit = '<button onclick="stockEdit('.$stock->id.')" class="btn btn-info">Edit</button>';
+
+                $delete = '<form action="/stock/'.$stock->id.'" method="post" style="display:inline;">
+                                                
+                                                <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="id" value="'.$stock->id.'">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>';
+
+                return $edit.$delete;
+
+                                        
+            })
+            ->addColumn('type', function($stock) {
+
+                return $stock->itemtype->gender .' '. $stock->itemtype->type;
+            })
+            ->rawColumns(['button'])
+            ->make(true);
+
+
+
     }
 }

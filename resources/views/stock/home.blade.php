@@ -14,7 +14,7 @@
                     @if ($errors->any())
         {!! implode('', $errors->all('<p class="bg-danger">:message</p>')) !!}
 @endif
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="stocks">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -25,27 +25,16 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach($items as $item)
-                                <tr>
-                                    <td> {{ $item->itemtype->name }}</td>
-                                    <td>{{ $item->itemtype->gender }}  {{ $item->itemtype->type }}</td>
-                                    <td> {{ $item->color }}</td>
-                                    <td> {{ $item->size }}</td>
-                                    <td> {{ $item->quantity }}</td>
-                                    <td>
-                                        <button onclick="stockEdit({{ $item->id }})" class="btn btn-info">Edit</button>
-
-                                        <form action="{{ route('stock.destroy',[$item->id]) }}" method="post" style="display:inline;">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                            <input type="hidden" name="id" value="{{ $item->id }}">
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="orderid"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="orderid"></td>
+                                <td></td>
+                                <td class="non-searchable"></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -169,6 +158,45 @@
     </div>
   </div>
 </div>
+
+<script>
+  
+  $(document).ready(function() {
+
+    $('#stocks').DataTable({
+        processing: true,
+        serverSide: true,
+        "responsive": true,
+        buttons: [
+                'csv', 'excel'
+            ],
+        ajax: "{{ route('datatables.stockdata') }}",
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'type', name: 'type' },
+            { data: 'color', name: 'color' },
+            { data: 'size', name: 'size' },
+            { data: 'quantity', name: 'quantity'},
+            { data: 'button', name: 'button'}
+        ],
+        initComplete: function () {
+            this.api().columns().every(function () {
+                var column = this;
+                var columnClass = column.footer().className;
+                if (columnClass !== 'non-searchable') {
+                var input = document.createElement("input");
+                $(input).appendTo($(column.footer()).empty())
+                .on('change', function () {
+                    column.search($(this).val(), false, false, true).draw();
+                });
+              }
+            });
+        }
+    });
+});
+
+</script>
+
 
 <script>
 

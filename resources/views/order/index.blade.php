@@ -122,7 +122,7 @@
     $('#orders').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('datatables.data') }}",
+        ajax: "{{ route('datatables.orderdata') }}",
         columns: [
             { data: 'id', name: 'id' },
             { data: 'orderdate', name: 'orderdate' },
