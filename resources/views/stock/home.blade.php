@@ -5,9 +5,11 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                        <a href="/stock/export" class="btn btn-info pull-right">Export</a>
                         <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#newItemModal">
                             +Add New Item
                         </button>
+
                     <h4>Stock</h4>
                 </div>
                 <div class="panel-body">

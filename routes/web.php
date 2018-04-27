@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'ItemsController@index')->name('home');
 
+Route::get('/stock/export', 'ItemsController@export');
+
 Route::resource('/stock', 'ItemsController');
 
 Route::get('/order/gender/{gender}', 'OrderItemsController@checkGender');

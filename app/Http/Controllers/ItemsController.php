@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Item;
 use App\Itemtype;
+use Excel;
+use App\Exports\ItemsExport;
 
 class ItemsController extends Controller
 {
@@ -125,4 +127,9 @@ class ItemsController extends Controller
         $item->delete();
         return redirect()->back();
     }
+
+    public function export() 
+{
+    return Excel::download(new ItemsExport, 'items.xlsx');
+}
 }
