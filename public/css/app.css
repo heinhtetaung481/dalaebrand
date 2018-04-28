@@ -8532,11 +8532,19 @@ footer {
   margin-top: 0;
 }
 
-td.orderid input {
+.export-button {
+  margin-right: 10px;
+}
+
+td.id_input input {
   width: 40px !important;
 }
 
-td.orderstatus input {
-  width: 60px;
+td.input_box input {
+  width: 120px;
+}
+
+tfoot {
+  display: table-header-group;
 }
 

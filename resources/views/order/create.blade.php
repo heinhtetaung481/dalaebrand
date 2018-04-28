@@ -62,7 +62,7 @@
 							</div>
 
 	    </form>
-			
+
 	<table class="table table-striped">
 		 <thead>
 				 <tr>
@@ -335,6 +335,8 @@
                 $('#price').val('');
                 $('#remarks').val('');
                 $('#quantity').val('');
+								$(".design-select").addClass('design-select-hide');
+								$("#design option[value=1]").prop('selected',true);
 
             }
             },

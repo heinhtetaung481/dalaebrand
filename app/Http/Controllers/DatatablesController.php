@@ -15,7 +15,7 @@ class DatatablesController extends Controller
     	$orders = Order::get();
 
     	return Datatables::of($orders)
-    		->addColumn('button', function($order) { 
+    		->addColumn('button', function($order) {
 
                 $detail = '<button class="btn btn-warning" onclick="orderDetail('.$order->id.')">Details</button>';
 
@@ -28,12 +28,12 @@ class DatatablesController extends Controller
                 }
 
                 $delete = '<form action="/order/'.$order->id.'" method="post" style="display:inline;">
-                                                
+
                                                 <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>';
 
-    			return $detail.$edit.$delete;
+    			return $detail." ".$edit.$delete;
 
     			})
     		->addColumn('customer_name', function($order) {
@@ -65,7 +65,7 @@ class DatatablesController extends Controller
                 $edit = '<button onclick="stockEdit('.$stock->id.')" class="btn btn-info">Edit</button>';
 
                 $delete = '<form action="/stock/'.$stock->id.'" method="post" style="display:inline;">
-                                                
+
                                                 <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="id" value="'.$stock->id.'">
                                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -73,7 +73,7 @@ class DatatablesController extends Controller
 
                 return $edit.$delete;
 
-                                        
+
             })
             ->addColumn('type', function($stock) {
 

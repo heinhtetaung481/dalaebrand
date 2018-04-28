@@ -12,7 +12,7 @@
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped" id="orders">
-                      
+
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -27,12 +27,12 @@
 
                         <tfoot>
                         <tr>
-                            <td class="orderid"></td>
+                            <td class="id_input"></td>
                             <td class="non-searchable"></td>
-                            <td></td>
-                            <td></td>
-                            <td  class="non-searchable"></td>
-                            <td class="orderstatus"></td>
+                            <td class="input_box"></td>
+                            <td class="input_box"></td>
+                            <td class="input_box"></td>
+                            <td class="input_box"></td>
                             <td class="non-searchable"></td>
                           </tr>
                         </tfoot>
@@ -116,7 +116,7 @@
 
 
 <script>
-  
+
   $(document).ready(function() {
 
     $('#orders').DataTable({

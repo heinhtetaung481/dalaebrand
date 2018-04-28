@@ -115,77 +115,66 @@
         <br>
 
         <form method="POST" action="/oitemp" id="newOrderItem">
-					<div class="row">
-						<div class="form-group col-md-3">
-                <label for="gender">Gender:</label>
-                <select name="gender" class="form-control" id="gender" onchange="checkGender()">
-                    <option selected value="">Choose Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="itemType">Item Type:</label>
-                <select name="itemType" class="form-control" id="itemType" onchange="checkType()">
-
-
-                </select>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label for="size">Size:</label>
-                <select name="size" class="form-control" id="size" onchange="checkColor()">
-
-                </select>
-            </div>
-
-						<div class="form-group col-md-3">
-                <label for="color">Color:</label>
-                <select name="color" class="form-control" id="color">
-                </select>
-            </div>
-
+					<div class="form-group col-md-2">
+						<label for="gender">Gender:</label>
+						<select name="gender" class="form-control" id="gender" onchange="checkGender()">
+							<option selected value="">Choose Gender</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
 					</div>
 
-					<div class="row">
-						<div class="form-group col-md-3">
-								<label for="remarks">Remarks:</label>
-								<input type="text" name="remarks" class="form-control" id="remarks">
-						</div>
+					<div class="form-group col-md-2">
+						<label for="itemType">Item Type:</label>
+						<select name="itemType" class="form-control" id="itemType" onchange="checkType()">
 
-            <div class="form-group col-md-3">
-                <label for="price">Price:</label>
-                <input type="text" name="price" class="form-control" id="price">
-            </div>
 
-						<div class="form-group col-md-3">
-                <label for="quantity">Quantity:</label>
-                <input type="text" name="quantity" class="form-control" id="quantity">
-            </div>
-						<div class="form-group col-md-3">
-                <span class="btn btn-primary glyphicon glyphicon-plus" onclick="addOrderItemTemp()" id="plusbutton"></span>
-            </div>
+						</select>
 					</div>
 
+					<div class="form-group col-md-1">
+							<label for="size">Size:</label>
+							<select name="size" class="form-control" id="size" onchange="checkColor()">
 
+						</select>
+					</div>
 
+					<div class="form-group col-md-2">
+							<label for="color">Color:</label>
+							<select name="color" class="form-control" id="color">
+							</select>
+					</div>
 
+					<div class="form-group col-md-1">
+							<label for="price">Price:</label>
+							<input type="text" name="price" class="form-control" id="price">
+					</div>
 
+					<div class="form-group col-md-2">
+							<label for="remarks">Remarks:</label>
+							<input type="text" name="remarks" class="form-control" id="remarks">
+					</div>
 
+					<div class="form-group col-md-1">
+							<label for="quantity">Quantity:</label>
+							<input type="text" name="quantity" class="form-control" id="quantity">
+					</div>
 
+					<div class="form-group col-md-1">
+							<span class="btn btn-primary glyphicon glyphicon-plus" onclick="addOrderItemTemp()" id="plusbutton" data="1"></span>
+					</div>
 
-            <div class="form-group col-md-12 design-select-hide design-select">
-                <label for="design">Select Design:</label>
-                <select name="design" class="form-control image-picker" id="design">
-									<option value="1">--- No Design ---</option>
-                    @foreach($designs as $key => $design)
-                        @if($key>0)
-                    <option data-img-src="/storage/designs/{{ $design->path }}" value="{{ $design->id }}">{{ $design->name }}</option>
-                        @endif
-                    @endforeach
-                </select>
-            </div>
+					<div class="form-group col-md-12 design-select-hide design-select">
+							<label for="design">Select Design:</label>
+							<select name="design" class="form-control image-picker" id="design">
+								<option value="1">--- No Design ---</option>
+									@foreach($designs as $key => $design)
+											@if($key>0)
+									<option data-img-src="/storage/designs/{{ $design->path }}" value="{{ $design->id }}">{{ $design->name }}</option>
+											@endif
+									@endforeach
+							</select>
+					</div>
 
                 <!-- Error Message -->
                 <span style="display:none" class="col-md-3 alert alert-danger" id="error"></span>
@@ -369,9 +358,12 @@
                 $('#itemType').empty();
                 $('#size').empty();
                 $('#color').empty();
-                $('#price').empty();
+                $('#price').val('');
                 $('#remarks').val('');
                 $('#quantity').val('');
+								$(".design-select").addClass('design-select-hide');
+								$("#design option[value=1]").prop('selected',true);
+
             }
             },
 

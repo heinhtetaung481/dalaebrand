@@ -5,11 +5,10 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                        <a href="/stock/export" class="btn btn-info pull-right">Export</a>
                         <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#newItemModal">
                             +Add New Item
                         </button>
-
+                        <a href="/stock/export" class="btn btn-info pull-right export-button">Export</a>
                     <h4>Stock</h4>
                 </div>
                 <div class="panel-body">
@@ -29,11 +28,11 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <td class="orderid"></td>
-                                <td></td>
-                                <td></td>
-                                <td class="orderid"></td>
-                                <td></td>
+                                <td class="id_input"></td>
+                                <td class="input_box"></td>
+                                <td class="input_box"></td>
+                                <td class="input_box"></td>
+                                <td class="input_box"></td>
                                 <td class="non-searchable"></td>
                             </tr>
                         </tfoot>
@@ -162,16 +161,13 @@
 </div>
 
 <script>
-  
+
   $(document).ready(function() {
 
     $('#stocks').DataTable({
         processing: true,
         serverSide: true,
-        "responsive": true,
-        buttons: [
-                'csv', 'excel'
-            ],
+
         ajax: "{{ route('datatables.stockdata') }}",
         columns: [
             { data: 'id', name: 'id' },
