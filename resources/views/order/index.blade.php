@@ -8,6 +8,8 @@
                         <a href="order/create"><button type="button" class="btn btn-primary pull-right">
                             +Add New Order
                         </button></a>
+                        <a href="/export/orders" class="btn btn-info pull-right export-button">Orders Export</a>
+                        <a href="/export/orderitems" class="btn btn-info pull-right export-button">Order Items Export</a>
                     <h4>Order</h4>
                 </div>
                 <div class="panel-body">

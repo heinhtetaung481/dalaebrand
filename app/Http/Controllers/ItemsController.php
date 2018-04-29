@@ -6,11 +6,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Item;
 use App\Itemtype;
-use Excel;
-use App\Exports\ItemsExport;
 
 class ItemsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -103,10 +105,7 @@ class ItemsController extends Controller
     {
         $item = Item::find($id);
 
-        $item->size = request('size');
-        $item->color = request('color');
         $item->quantity = request('quantity');
-        $item->itemtype_id = request('type');
         $item->save();
 
 
@@ -127,9 +126,4 @@ class ItemsController extends Controller
         $item->delete();
         return redirect()->back();
     }
-
-    public function export() 
-{
-    return Excel::download(new ItemsExport, 'items.xlsx');
-}
 }

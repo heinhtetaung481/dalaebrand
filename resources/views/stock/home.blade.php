@@ -8,7 +8,7 @@
                         <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#newItemModal">
                             +Add New Item
                         </button>
-                        <a href="/stock/export" class="btn btn-info pull-right export-button">Export</a>
+                        <a href="/export/items" class="btn btn-info pull-right export-button">Export</a>
                     <h4>Stock</h4>
                 </div>
                 <div class="panel-body">
@@ -116,35 +116,6 @@
             <input type="hidden" name="_method" value="PATCH">
             {{ csrf_field() }}
 
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="form-control" id="editName">
-            </div>
-
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <select class="form-control" name="gender" id="editGender" onchange="checkEditGender()">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="type">Item Type:</label>
-                <select class="form-control" name="type" id="editType">
-
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="color">Color:</label>
-                <input type="text" name="color" class="form-control" id="editColor">
-            </div>
-
-            <div class="form-group">
-                <label for="size">Size:</label>
-                <input type="text" id="editSize" class="form-control" name="size">
-            </div>
 
             <div class="form-group">
                 <label for="quantity">Quantity:</label>
@@ -208,11 +179,6 @@
         }).done(
             function (data){
                 $("#edititem").attr("action","/stock/"+data[0].id);
-                $("#editName").val(data[0].name);
-                $("#editGender option[value="+data[0].gender+"]").prop('selected',true).trigger('change');
-                $("#editType option[value="+data[0].type+"]").prop('selected', true);
-                $("#editColor").val(data[0].color);
-                $("#editSize").val(data[0].size);
                 $("#editQuantity").val(data[0].quantity);
                 //$("input[name='");
                 $("#editItemModal").modal("show");
@@ -234,26 +200,6 @@
                 for(i=0; i< data.length; i++){
 
                 $('#type').append($('<option value='+data[i].id+'>'+data[i].type+'</option>'));
-            }
-            }
-
-        })
-        }
-    }
-
-    function checkEditGender(){
-        var gender = $('#editGender').val();
-        if(gender){
-        $.ajax({
-            url:'/order/gender/'+gender,
-            type:'GET',
-            success:function(data){
-
-                $('#editType').empty();
-                $('#editType').append($('<option selected>Choose Item Type</option>'));
-                for(i=0; i< data.length; i++){
-
-                $('#editType').append($('<option value='+data[i].id+'>'+data[i].type+'</option>'));
             }
             }
 

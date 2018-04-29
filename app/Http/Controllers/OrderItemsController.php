@@ -15,6 +15,10 @@ use App\Design;
 
 class OrderItemsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -259,4 +263,5 @@ class OrderItemsController extends Controller
 
         return response()->json($colors);
     }
+
 }

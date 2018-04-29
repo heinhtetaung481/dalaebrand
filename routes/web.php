@@ -19,8 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'ItemsController@index')->name('home');
 
-Route::get('/stock/export', 'ItemsController@export');
-
 Route::resource('/stock', 'ItemsController');
 
 Route::get('/order/gender/{gender}', 'OrderItemsController@checkGender');
@@ -44,6 +42,12 @@ Route::resource('/design', 'DesignsController');
 Route::get('/datatables/orderdata', 'DatatablesController@orderData')->name('datatables.orderdata');
 
 Route::get('/datatables/stockdata', 'DatatablesController@stockData')->name('datatables.stockdata');
+
+Route::get('/export/items', 'ExportController@items');
+
+Route::get('/export/orders', 'ExportController@orders');
+
+Route::get('/export/orderitems', 'ExportController@orderitems');
 
 
 

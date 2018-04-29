@@ -9,6 +9,11 @@ use App\Item;
 
 class OitempController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function destroy($id)
     {
     	$oitemp = Oitemp::find($id);
