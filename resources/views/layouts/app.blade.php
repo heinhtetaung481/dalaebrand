@@ -17,8 +17,8 @@
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
-    
-        
+
+
 
 </head>
 <body>
@@ -35,6 +35,18 @@
                 <a class="navbar-brand" href="./">Dalae Brand</a>
               </div>
               <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav show-on-mobile">
+                  <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                  <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Stock</a></li>
+                  <li>
+                    <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>
+                    <ul class="nav collapse" id="order-detail">
+                      <li><a href="{{ url('/order')}}">View Orders</a></li>
+                      <li><a href="{{ url('/order/create')}}">Make New Order</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
@@ -67,7 +79,7 @@
       </nav>
 <!-- Sidebar Start -->
       <div class="container-fluid">
-            <div class="row row-offcanvas row-offcanvas-left">
+            <div class="row row-offcanvas row-offcanvas-left hide-on-mobile">
 
                <div class="col-sm-3 col-md-2 col-xs-12 sidebar-offcanvas" id="sidebar" role="navigation">
 
@@ -75,8 +87,8 @@
                     <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
                     <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Stock</a></li>
                     <li>
-                      <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>
-                      <ul class="nav collapse" id="order-detail">
+                      <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse" data-target="#order-detail2"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>
+                      <ul class="nav collapse" id="order-detail2">
                         <li><a href="{{ url('/order')}}">View Orders</a></li>
                         <li><a href="{{ url('/order/create')}}">Make New Order</a></li>
                       </ul>
@@ -89,9 +101,9 @@
               <div class="col-sm-9 col-md-10 main">
 
                 <!--toggle sidebar button-->
-                <p class="visible-xs">
+                <!-- <p class="visible-xs">
                   <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
-                </p>
+                </p> -->
 
                 @yield('content')
             </div><!--/row-->
@@ -102,6 +114,6 @@
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}"></script>
-    
+
 </body>
 </html>

@@ -62,6 +62,7 @@
 							</div>
 
 	    </form>
+<div class="table-responsive">
 
 	<table class="table table-striped">
 		 <thead>
@@ -82,7 +83,7 @@
 		 </tbody>
  </table>
 
-
+</div>
     <form method="POST" action="/oitemp" id="newOrderItem">
 
             <div class="form-group col-md-2">

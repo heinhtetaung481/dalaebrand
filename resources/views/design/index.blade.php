@@ -26,7 +26,7 @@
 
                                 @if($key>0)
                                 <tr>
-                                    <td> <img src="/storage/designs/{{ $design->path }}"/>   {{ $design->name }}</td>
+                                    <td> <img src="/storage/designs/{{ $design->path }}" class="img-fluid design-image"/> &nbsp; &nbsp;  {{ $design->name }}</td>
 
                                     <td>
                                         <!-- <button onclick="stockEdit({{ $design->id }})" class="btn btn-info">Edit</button> -->
