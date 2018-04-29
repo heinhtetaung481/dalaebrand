@@ -80,7 +80,8 @@
 <!-- Sidebar Start -->
       <div class="container-fluid">
             <div class="row row-offcanvas row-offcanvas-left hide-on-mobile">
-
+              <!-- sidebar start -->
+              @auth
                <div class="col-sm-3 col-md-2 col-xs-12 sidebar-offcanvas" id="sidebar" role="navigation">
 
                   <ul class="nav nav-sidebar" role="navigation">
@@ -97,7 +98,8 @@
                   </ul>
 
               </div><!--/span-->
-
+              @endauth
+              <!-- sidebar end -->
               <div class="col-sm-9 col-md-10 main">
 
                 <!--toggle sidebar button-->
