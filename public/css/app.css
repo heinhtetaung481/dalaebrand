@@ -8419,9 +8419,10 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
   width: auto;
 }
 
-img.image_picker_image {
+img.image_picker_image,
+img.design-image {
   width: 150px;
-  height: 70px;
+  height: 120px;
 }
 
 /*
@@ -8495,17 +8496,20 @@ footer {
 }
 
 #order-detail,
+#order-detail2,
 #design-detail {
   list-style: none;
 }
 
 #order-detail li,
+#order-detail2 li,
 #design-detail li {
   margin-bottom: 3px;
   margin-left: 20px;
 }
 
 #order-detail li a,
+#order-detail2 li a,
 #design-detail li a {
   text-decoration: none;
   font-size: 14px;
@@ -8530,6 +8534,16 @@ footer {
 
 .main .page-header {
   margin-top: 0;
+}
+
+.show-on-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .show-on-mobile {
+    display: block;
+  }
 }
 
 .export-button {

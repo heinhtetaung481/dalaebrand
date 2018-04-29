@@ -15,6 +15,7 @@
                     @if ($errors->any())
         {!! implode('', $errors->all('<p class="bg-danger">:message</p>')) !!}
 @endif
+                <div class="table-responsive">
                     <table class="table table-striped" id="stocks">
                         <thead>
                             <tr>
@@ -23,7 +24,7 @@
                                 <th>Color</th>
                                 <th>Size</th>
                                 <th>Quantity</th>
-                                <th></th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -37,6 +38,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                  </div>
                 </div>
             </div>
         </div>

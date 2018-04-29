@@ -64,17 +64,18 @@ footer {
   color: #fff;
   background-color: #428bca;
 }
-#order-detail,#design-detail{
+#order-detail,#order-detail2,#design-detail{
   list-style: none;
 }
-#order-detail li,#design-detail li{
+#order-detail li,#order-detail2 li,#design-detail li{
   margin-bottom: 3px;
   margin-left: 20px;
 }
-#order-detail li a,#design-detail li a{
+#order-detail li a,#order-detail2 li a,#design-detail li a{
   text-decoration: none;
   font-size: 14px;
 }
+
 /*
  * Main content
  */
@@ -92,4 +93,12 @@ footer {
 }
 .main .page-header {
   margin-top: 0;
+}
+.show-on-mobile{
+  display: none;
+}
+@media screen and (max-width: 768px){
+  .show-on-mobile{
+    display: block;
+  }
 }

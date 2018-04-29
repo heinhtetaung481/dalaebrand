@@ -74,41 +74,42 @@
 							</div>
 						</div>
             </form>
-
-        <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Color</th>
-                        <th>Size</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Design</th>
-                        <th>Remarks</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-
-
-                    @foreach($oitemps as $oitemp)
+						<div class="table-responsive">
+			        <table class="table table-striped">
+			                <thead>
+			                    <tr>
+			                        <th>Type</th>
+			                        <th>Color</th>
+			                        <th>Size</th>
+			                        <th>Quantity</th>
+			                        <th>Price</th>
+			                        <th>Design</th>
+			                        <th>Remarks</th>
+			                        <th></th>
+			                    </tr>
+			                </thead>
+			                <tbody id="tbody">
 
 
-                     <tr>
-                         <td>{{ $oitemp->item->itemtype->gender }}  {{ $oitemp->item->itemtype->type }}</td>
-                         <td>{{ $oitemp->item->color }}</td>
-                         <td>{{ $oitemp->item->size }}</td>
-                         <td>{{ $oitemp->quantity }}</td>
-                         <td>{{ $oitemp->price }}</td>
-                         <td>{{ $oitemp->design->name }}</td>
-                         <td>{{ $oitemp->remarks }}</td>
-                         <td><span class="btn btn-danger glyphicon glyphicon-minus" onclick="deleteOrderItemTemp({{ $oitemp->id }})"></span></td>
-                     </tr>
+			                    @foreach($oitemps as $oitemp)
 
-                     @endforeach
 
-                </tbody>
-            </table>
+			                     <tr>
+			                         <td>{{ $oitemp->item->itemtype->gender }}  {{ $oitemp->item->itemtype->type }}</td>
+			                         <td>{{ $oitemp->item->color }}</td>
+			                         <td>{{ $oitemp->item->size }}</td>
+			                         <td>{{ $oitemp->quantity }}</td>
+			                         <td>{{ $oitemp->price }}</td>
+			                         <td>{{ $oitemp->design->name }}</td>
+			                         <td>{{ $oitemp->remarks }}</td>
+			                         <td><span class="btn btn-danger glyphicon glyphicon-minus" onclick="deleteOrderItemTemp({{ $oitemp->id }})"></span></td>
+			                     </tr>
+
+			                     @endforeach
+
+			                </tbody>
+			            </table>
+								</div>
 
 
 

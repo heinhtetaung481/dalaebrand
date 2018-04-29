@@ -12,7 +12,7 @@
                         <a href="/export/orderitems" class="btn btn-info pull-right export-button">Order Items Export</a>
                     <h4>Order</h4>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body table-responsive">
                     <table class="table table-striped" id="orders">
 
                         <thead>
@@ -23,7 +23,7 @@
                                 <th>Phone No.</th>
                                 <th>Address</th>
                                 <th>status</th>
-                                <th></th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
 
@@ -87,22 +87,24 @@
         <div>
           Remarks: <span id="remarks"></span>
         </div>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Color</th>
-						<th>Size</th>
-						<th>Quantity</th>
-            <th>Price</th>
-						<th>Design</th>
-            <th>Remarks</th>
-					</tr>
-				</thead>
-				<tbody id="tbody">
+        <div class="table-responsive">
+    			<table class="table table-striped">
+    				<thead>
+    					<tr>
+    						<th>Type</th>
+    						<th>Color</th>
+    						<th>Size</th>
+    						<th>Quantity</th>
+                <th>Price</th>
+    						<th>Design</th>
+                <th>Remarks</th>
+    					</tr>
+    				</thead>
+    				<tbody id="tbody">
 
-				</tbody>
-			</table>
+    				</tbody>
+    			</table>
+        </div>
       	</div>
 
 
