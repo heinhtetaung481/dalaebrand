@@ -85,7 +85,7 @@
                <div class="col-sm-3 col-md-2 col-xs-12 sidebar-offcanvas" id="sidebar" role="navigation">
 
                   <ul class="nav nav-sidebar" role="navigation">
-                    <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                    <li><a href="/dashboard"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
                     <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Stock</a></li>
                     <li>
                       <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse" data-target="#order-detail2"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>

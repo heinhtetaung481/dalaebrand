@@ -49,5 +49,7 @@ Route::get('/export/orders', 'ExportController@orders');
 
 Route::get('/export/orderitems', 'ExportController@orderitems');
 
+Route::get('/dashboard', 'DashboardController@index');
+
 
 

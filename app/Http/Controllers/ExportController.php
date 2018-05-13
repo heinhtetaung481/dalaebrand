@@ -10,6 +10,11 @@ use App\Exports\OrderItemsExport;
 
 class ExportController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
 	 public function items() {
 
 	    return Excel::download(new ItemsExport, 'items.xlsx');
