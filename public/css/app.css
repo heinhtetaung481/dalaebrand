@@ -8562,3 +8562,34 @@ tfoot {
   display: table-header-group;
 }
 
+.card {
+  color: white;
+}
+
+#pending-orders-card {
+  background-color: #ffc107;
+}
+
+#products-card {
+  background-color: #007bff;
+}
+
+#sales-card {
+  background-color: #4cf372;
+}
+
+#customers-card {
+  background-color: #ed7be0;
+}
+
+.numbers {
+  margin-left: auto;
+  font-size: 30px;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 50px;
+  margin-top: 10px;
+}
+

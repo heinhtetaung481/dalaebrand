@@ -4,30 +4,55 @@
 
 <div class="row">
 	<div class="col-md-3">
-		<div class="panel panel-default">
+		<div class="panel panel-default card" id="pending-orders-card">
 			<div class="panel-body">
-				<span>24</span> <br>Pending Orders
+				<div class="col-md-8">
+					<span class="numbers">24</span> <br>Pending Orders
+				</div>
+				<div class="col-md-4">
+					<span class="glyphicon glyphicon-shopping-cart card-icon"></span>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-3">
-		<div class="panel panel-default">
+		<div class="panel panel-default card" id="products-card">
 			<div class="panel-body">
-				<span>4</span> <br>Products
+				<div class="col-md-8">
+					<span class="numbers">4</span> <br>Products
+				</div>
+				<div class="col-md-4">
+					<span class="glyphicon glyphicon-list-alt card-icon"></span>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-3">
-		<div class="panel panel-default">
+		<div class="panel panel-default card" id="sales-card">
+
 			<div class="panel-body">
-				<span>24</span> <br>Sales
+
+				<div class="col-md-8">
+					<span class="numbers">24</span> <br>Sales
+				</div>
+
+				<div class="col-md-4">
+					<span class="glyphicon glyphicon-tags card-icon"></span>
+				</div>
+
 			</div>
+
 		</div>
 	</div>
 	<div class="col-md-3">
-		<div class="panel panel-default">
+		<div class="panel panel-default card" id="customers-card">
 			<div class="panel-body">
-				<span>2402</span> <br>Customers
+				<div class="col-md-8">
+					<span class="numbers">2402</span> <br>Customers
+				</div>
+				<div class="col-md-4">
+					<span class="glyphicon glyphicon-user card-icon"></span>
+				</div>
 			</div>
 		</div>
 	</div>
