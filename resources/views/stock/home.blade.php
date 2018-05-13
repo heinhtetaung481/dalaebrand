@@ -19,7 +19,7 @@
                     <table class="table table-striped" id="stocks">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>No.</th>
                                 <th>Type</th>
                                 <th>Color</th>
                                 <th>Size</th>
