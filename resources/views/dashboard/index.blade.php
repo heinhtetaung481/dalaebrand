@@ -60,7 +60,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<div class="panel panel-default">
+		<div class="panel panel-default panel-danger">
 			<div class="panel-heading">STOCKS UNDER 10 PAX</div>
 			<div class="panel-body">
 				<table class="table table-striped">
@@ -82,7 +82,7 @@
 	</div>
 
 	<div class="col-md-6">
-		<div class="panel panel-default">
+		<div class="panel panel-default panel-info">
 			<div class="panel-heading">Latest Orders</div>
 			<div class="panel-body">
 				<table class="table table-striped">
@@ -103,6 +103,33 @@
 		</div>
 	</div>
 
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default panel-primary">
+			<div class="panel-heading">Popular Items <span class="glyphicon glyphicon-star pull-right"><span></div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Type</th>
+						<th>Color</th>
+						<th>Size</th>
+						<th>Total Sales</th>
+					</tr>
+					<tr>
+						<td>Male Slipper</td>
+						<td>White</td>
+						<td>11</td>
+						<td>480</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+
+	</div>
 </div>
 
 
