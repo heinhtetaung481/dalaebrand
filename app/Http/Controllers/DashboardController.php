@@ -27,6 +27,15 @@ class DashboardController extends Controller
 
     	$latestOrders = Order::orderBy('created_at','desc')->limit(5)->get();
 
-    	return view('dashboard.index',compact('pendingOrdersCount','itemsCount','salesCount','customersCount','leastItems','latestOrders'));
+    	$popularItems = Orderitem::query()
+    		->join('items', 'items.id','=','orderitems.item_id')
+    		->join('itemtypes','itemtypes.id','=','items.itemtype_id')
+	    	->groupBy('orderitems.item_id')
+	    	->selectRaw('itemtypes.gender,itemtypes.type,items.color,items.size,sum(orderitems.quantity) as quantity')
+	    	->orderBy('quantity','DESC')
+	    	->limit(5)
+	    	->get();
+
+    	return view('dashboard.index',compact('pendingOrdersCount','itemsCount','salesCount','customersCount','leastItems','latestOrders','popularItems'));
     }
 }

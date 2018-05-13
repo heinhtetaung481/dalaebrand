@@ -78,12 +78,15 @@
 						<th>Size</th>
 						<th>Total Sales</th>
 					</tr>
+
+					@foreach($popularItems as $item)
 					<tr>
-						<td>Male Slipper</td>
-						<td>White</td>
-						<td>11</td>
-						<td>480</td>
+						<td>{{ $item->gender }} {{ $item->type }}</td>
+						<td>{{ $item->color }}</td>
+						<td>{{ $item->size }}</td>
+						<td>{{ $item->quantity }}</td>
 					</tr>
+					@endforeach
 				</table>
 			</div>
 		</div>
