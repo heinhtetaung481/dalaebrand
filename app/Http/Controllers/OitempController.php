@@ -44,7 +44,7 @@ class OitempController extends Controller
     
     	$item = Item::where([['itemtype_id',$request->itemtype],['color',$request->color],['size', $request->size]])->first();
 
-    	if ($request->quantity < $item->quantity) {
+    	if ($request->quantity <= $item->quantity) {
 
 
     		$item->quantity = $item->quantity - $request->quantity;
@@ -108,6 +108,27 @@ class OitempController extends Controller
 
 	    	return response()->json(['error' => 'There is no enough quantity']);
 	    }
+
+    }
+
+    public function pageUnload(){
+
+    	$oitemps = Oitemp::get();
+
+    	foreach ($oitemps as $oitemp) {
+    		
+	    	$item = Item::find($oitemp->item_id);
+
+	    	$item->quantity = $item->quantity + $oitemp->quantity;
+
+	    	$item->save();
+
+	    	Oitemp::find($oitemp->id)->delete();
+    	}
+
+    	return "true";
+    	
+        
 
     }
 }

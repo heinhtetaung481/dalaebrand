@@ -23,7 +23,7 @@ class DashboardController extends Controller
 
     	$customersCount = Customer::get()->count();
 
-    	$leastItems = Item::where('quantity','<','10')->get();
+    	$leastItems = Item::where('quantity','<','10')->orderBy('quantity','ASC')->get();
 
     	$latestOrders = Order::orderBy('created_at','desc')->limit(5)->get();
 

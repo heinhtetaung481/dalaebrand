@@ -35,6 +35,8 @@ Route::resource('/order', 'OrderItemsController');
 
 Route::post('/oitemp', 'OitempController@store');
 
+Route::get('/oitemp/pageunload','OitempController@pageUnload');
+
 Route::get('/oitemp/{id}', 'OitempController@destroy');
 
 Route::resource('/design', 'DesignsController');
@@ -43,13 +45,21 @@ Route::get('/datatables/orderdata', 'DatatablesController@orderData')->name('dat
 
 Route::get('/datatables/stockdata', 'DatatablesController@stockData')->name('datatables.stockdata');
 
+Route::get('/datatables/customerdata', 'DatatablesController@customerData')->name('datatables.customerdata');
+
 Route::get('/export/items', 'ExportController@items');
 
 Route::get('/export/orders', 'ExportController@orders');
 
 Route::get('/export/orderitems', 'ExportController@orderitems');
 
+Route::get('/export/customers', 'ExportController@customers');
+
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('/customer', 'CustomerController@index');
+
+Route::delete('/customer/{id}', 'CustomerController@destroy');
 
 
 

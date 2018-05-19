@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Order;
 use App\Item;
+use App\Customer;
 
 class DatatablesController extends Controller
 {
@@ -88,5 +89,12 @@ class DatatablesController extends Controller
 
 
 
+    }
+
+    public function customerData(){
+
+        $customers = Customer::get();
+
+        return Datatables::of($customers)->make(true);
     }
 }

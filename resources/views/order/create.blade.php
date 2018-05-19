@@ -336,8 +336,8 @@
                 $('#price').val('');
                 $('#remarks').val('');
                 $('#quantity').val('');
-								$(".design-select").addClass('design-select-hide');
-								$("#design option[value=1]").prop('selected',true);
+				$(".design-select").addClass('design-select-hide');
+				$("#design option[value=1]").prop('selected',true);
 
             }
             },
@@ -348,11 +348,34 @@
 
     }
 
+     var formChanged = false;
+        var submitted = false;
+
+        $(document).on('change','#newOrder, #newOrderItem',function(){
+            formChanged = true;
+        })
+
+      window.onunload = function (){
+        if (formChanged && !submitted) {
+            readd();
+      }};
+
     function updateOrder(){
 
+        submitted = true;
         $('#newOrder').submit();
 
     }
+
+    function readd (){
+
+        $.ajax({
+            url:'/oitemp/pageunload',
+            type:'get',
+        })
+    }
+
+
 
 </script>
 

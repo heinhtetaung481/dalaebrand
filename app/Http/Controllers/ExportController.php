@@ -7,6 +7,7 @@ use Excel;
 use App\Exports\ItemsExport;
 use App\Exports\OrdersExport;
 use App\Exports\OrderItemsExport;
+use App\Exports\CustomersExport;
 
 class ExportController extends Controller
 {
@@ -28,5 +29,10 @@ class ExportController extends Controller
     public function orderitems(){
 
     	return Excel::download(new OrderitemsExport, 'Orderitems.xlsx');
+    }
+
+    public function customers(){
+
+        return Excel::download(new CustomersExport, 'Customers.xlsx');
     }
 }

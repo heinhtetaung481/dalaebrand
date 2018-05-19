@@ -45,6 +45,7 @@
                       <li><a href="{{ url('/order/create')}}">Make New Order</a></li>
                     </ul>
                   </li>
+                  <li><a href="/customer"><span class="glyphicon glyphicon-user">Customer</span></a></li>
                   <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -94,6 +95,7 @@
                         <li><a href="{{ url('/order/create')}}">Make New Order</a></li>
                       </ul>
                     </li>
+                    <li><a href="/customer"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
                     <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
                   </ul>
 
