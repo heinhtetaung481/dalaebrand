@@ -58,66 +58,107 @@
       </div>
       <div class="modal-body">
 
+          <div class="row">
+            <div class="col-md-4">
+              Order ID:
+            </div>
+            <div class="col-md-4">
+              <span id="orderId"></span>
+            </div>
+          </div>
 
-      	<div>
-        Order ID: <span id="orderId"></span>
-      	</div>
-        <div>
-        Date: <span id="orderDate"></span>
-      	<div>
-        Customer Name: <span id="cusName"></span>
-      	</div>
-      	<div>
-        Phone No.: <span id="cusPhone"></span>
-      	</div>
-        <div>
-          Address: <span id="cusAddress"></span>
-      	<div>
+          <div class="row">
+            <div class="col-md-4">
+              Customer Name:
+            </div>
+            <div class="col-md-4">
+              <span id="cusName"></span>
+            </div>
+          </div>
 
-        <div>
-          Email: <span id="cusEmail"></span>
-        <div>
+          <div class="row">
+            <div class="col-md-4">
+              Phone:
+            </div>
+            <div class="col-md-4">
+              <span id="cusPhone"></span>
+            </div>
+          </div>
 
-        <div>
-          Status: <span id="status"></span>
+          <div class="row">
+            <div class="col-md-4">
+              Address:
+            </div>
+            <div class="col-md-4">
+              <span id="cusAddress"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              Email:
+            </div>
+            <div class="col-md-4">
+              <span id="cusEmail"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              Status:
+            </div>
+            <div class="col-md-4">
+              <span id="status"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              Discount:
+            </div>
+            <div class="col-md-4">
+              <span id="discount"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              Remarks:
+            </div>
+            <div class="col-md-4">
+              <span id="remarks"></span>
+            </div>
+          </div>
+
+
+            <div class="table-responsive">
+        			<table class="table table-striped">
+        				<thead>
+        					<tr>
+        						<th>Type</th>
+        						<th>Color</th>
+        						<th>Size</th>
+        						<th>Quantity</th>
+                    <th>Price</th>
+        						<th>Design</th>
+                    <th>Remarks</th>
+        					</tr>
+        				</thead>
+        				<tbody id="tbody">
+
+        				</tbody>
+        			</table>
+            </div>
+
         </div>
-        <div>
-          Discount: <span id="discount"></span>
+        <div class="modal-footer">
+          <a class="btn btn-primary" id="order-pdf">Print</a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-        <div>
-          Remarks: <span id="remarks"></span>
-        </div>
-        <div class="table-responsive">
-    			<table class="table table-striped">
-    				<thead>
-    					<tr>
-    						<th>Type</th>
-    						<th>Color</th>
-    						<th>Size</th>
-    						<th>Quantity</th>
-                <th>Price</th>
-    						<th>Design</th>
-                <th>Remarks</th>
-    					</tr>
-    				</thead>
-    				<tbody id="tbody">
-
-    				</tbody>
-    			</table>
-        </div>
-      	</div>
-
-
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-primary" id="order-pdf">Print</a>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-
-      </div>
     </div>
   </div>
 </div>
+
 
 
 

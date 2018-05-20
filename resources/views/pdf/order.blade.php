@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Order</title>
+	<style>
+		#orderTable,#cusTable{
+			border-collapse: collapse;
+    	width: 100%;
+		}
+
+		#orderTable th{
+			padding-top: 12px;
+	    padding-bottom: 12px;
+	    text-align: left;
+	    background-color: #12447A;
+	    color: white;
+		}
+
+		#orderTable tr:nth-child(even){
+			background-color: #f2f2f2;
+		}
+
+		#orderTable td,#orderTable th{
+			border: 1px solid #ddd;
+    	padding: 8px;
+		}
+	</style>
 </head>
 <body>
 	<h2>Order Detail</h2>
-	<div>
-        Order ID: <span id="orderId">{{ $order->id }}</span>
-      	</div>
-        <div>
-        Date: <span id="orderDate">{{ $order->orderdate }}</span>
-      	<div>
-        Customer Name: <span id="cusName">{{ $order->customer->name }}</span>
-      	</div>
-      	<div>
-        Phone No.: <span id="cusPhone">{{ $order->customer->phone }}</span>
-      	</div>
-        <div>
-          Address: <span id="cusAddress">{{ $order->customer->address }}</span>
-      	<div>
+		<table id="cusTable">
+			<tr>
+				<td>Order ID:</td>
+				<td>{{ $order->id }}</td>
+			</tr>
+			<tr>
+				<td>Date:</td>
+				<td>{{ $order->orderdate }}</td>
+			</tr>
+			<tr>
+				<td>Customer Name:</td>
+				<td>{{ $order->customer->name }}</td>
+			</tr>
+			<tr>
+				<td>Phone:</td>
+				<td>{{ $order->customer->phone }}</td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td>{{ $order->customer->address }}</td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td>{{ $order->customer->email }}</td>
+			</tr>
+			<tr>
+				<td>Status:</td>
+				<td>{{ $order->status }}</td>
+			</tr>
+			<tr>
+				<td>Discount:</td>
+				<td>{{ $order->discount }}</td>
+			</tr>
+			<tr>
+				<td>Remarks:</td>
+				<td>{{ $order->remarks }}</td>
+			</tr>
+		</table>
 
         <div>
-          Email: <span id="cusEmail">{{ $order->customer->email }}</span>
-        <div>
-
-        <div>
-          Status: <span id="status">{{ $order->status }}</span>
-        </div>
-        <div>
-          Discount: <span id="discount">{{ $order->discount }}</span>
-        </div>
-        <div>
-          Remarks: <span id="remarks">{{ $order->remarks }}</span>
-        </div>
-        <div>
-    		<table>
+    		<table id="orderTable">
     			<thead>
     				<tr>
     					<th>Type</th>

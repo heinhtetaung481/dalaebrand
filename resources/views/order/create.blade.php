@@ -10,7 +10,7 @@
                 @if ($errors->any())
                     {!! implode('', $errors->all('<p class="bg-danger">:message</p>')) !!}
                 @endif
-                
+
 	            <div class="form-group">
 	                <label for="cusName" class="control-label col-md-2">Customer Name:</label>
 									<div class="col-md-6">

@@ -89,8 +89,11 @@
 					@endforeach
 				</table>
 			</div>
+			<div class="panel-footer">
+				<a href="{{ url('/stock')}}">View All Stocks</a>
+			</div>
 		</div>
-		
+
 	</div>
 
 	<div class="col-md-6">
@@ -118,12 +121,15 @@
 					@endif
 				</table>
 			</div>
+			<div class="panel-footer">
+				<a href="{{ url('/order')}}">View All Orders</a>
+			</div>
 		</div>
 	</div>
 
 	<div class="col-md-6">
 		<div class="panel panel-default panel-danger">
-			<div class="panel-heading">STOCKS UNDER 10 PAX</div>
+			<div class="panel-heading">STOCKS UNDER ( 10 ) PAX <span class="glyphicon glyphicon-warning-sign pull-right"><span></div>
 			<div class="panel-body">
 				<table class="table table-striped">
 						<tr>
@@ -145,7 +151,7 @@
 							<tr><td colspan="4">All Items are above 10 Pax</td></tr>
 						@endif
 
-						
+
 				</table>
 			</div>
 		</div>
