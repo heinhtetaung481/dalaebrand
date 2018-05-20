@@ -40,7 +40,14 @@ class OitempController extends Controller
 
     public function store(Request $request){
 
-    	
+    	$request->validate([
+
+    		'itemtype' => 'required',
+    		'color' => 'required',
+    		'size' => 'required',
+    		'quantity' => 'required|numeric',
+    		'price' => 'required|numeric'
+    	]);
     
     	$item = Item::where([['itemtype_id',$request->itemtype],['color',$request->color],['size', $request->size]])->first();
 

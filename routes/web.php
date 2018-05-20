@@ -61,5 +61,7 @@ Route::get('/customer', 'CustomerController@index');
 
 Route::delete('/customer/{id}', 'CustomerController@destroy');
 
+Route::get('/pdf/order/{id}', 'PdfexportController@order');
+
 
 

@@ -44,6 +44,14 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'size' => 'required|numeric',
+            'color' => 'required',
+            'quantity' => 'required|numeric',
+            'type' => 'required'
+
+        ]);
 
         $item = Item::where([['size', $request->size],['color', $request->color],['itemtype_id', $request->type]])->get();
 
@@ -103,6 +111,11 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+
+            'quantity' => 'required|numeric'
+        ]);
+        
         $item = Item::find($id);
 
         $item->quantity = request('quantity');

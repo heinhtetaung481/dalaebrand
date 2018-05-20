@@ -44,6 +44,10 @@ class DesignsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'design' => 'required',
+            'name' => 'required'
+        ]);
         $randNumber = rand(1000,9999);
         $request->design->storeAs('public/designs',$request->name.$randNumber.".jpg");
 

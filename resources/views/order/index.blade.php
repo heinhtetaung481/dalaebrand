@@ -110,7 +110,9 @@
 
       </div>
       <div class="modal-footer">
+        <a class="btn btn-primary" id="order-pdf">Print</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
 
       </div>
     </div>
@@ -175,6 +177,7 @@
               $('#status').html(data[0].status);
               $('#discount').html(data[0].discount);
               $('#remarks').html(data[0].remarks);
+              $('#order-pdf').prop('href','/pdf/order/'+data[0].id);
 
 
               $('#tbody').empty();

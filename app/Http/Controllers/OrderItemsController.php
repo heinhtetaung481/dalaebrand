@@ -54,6 +54,15 @@ class OrderItemsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'cusName' => 'required',
+            'cusPhone' => 'required|numeric',
+            'cusAddress' => 'required',
+            'cusEmail' => 'required|email',
+            'date' => 'required|date',
+            'discount' => 'nullable|numeric'
+        ]);
 
         $cusLastInsertedId = Customer::create([
             'name' => $request->cusName,
@@ -166,7 +175,16 @@ class OrderItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
 
+            'cusName' => 'required',
+            'cusPhone' => 'required|numeric',
+            'cusAddress' => 'required',
+            'cusEmail' => 'required|email',
+            'date' => 'required|date',
+            'discount' => 'nullable|numeric',
+            'status' => 'required'
+        ]);
 
         $order = Order::find($id);
 

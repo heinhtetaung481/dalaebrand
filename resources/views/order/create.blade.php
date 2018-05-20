@@ -6,6 +6,11 @@
 	<div class="col-md-12">
 		<form class="form-horizontal" method="POST" action="/order" id="newOrder">
 	            {{ csrf_field() }}
+
+                @if ($errors->any())
+                    {!! implode('', $errors->all('<p class="bg-danger">:message</p>')) !!}
+                @endif
+                
 	            <div class="form-group">
 	                <label for="cusName" class="control-label col-md-2">Customer Name:</label>
 									<div class="col-md-6">
