@@ -67,6 +67,7 @@
 				<td>{{ $order->remarks }}</td>
 			</tr>
 		</table>
+		<br>
 
         <div>
     		<table id="orderTable">
@@ -115,5 +116,7 @@
     			</tbody>
     		</table>
         </div>
+		
+
 </body>
 </html>
