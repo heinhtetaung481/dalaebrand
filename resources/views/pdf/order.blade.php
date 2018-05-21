@@ -67,34 +67,34 @@
 				<td>{{ $order->remarks }}</td>
 			</tr>
 		</table>
-
-        <div>
-    		<table id="orderTable">
-    			<thead>
-    				<tr>
-    					<th>Type</th>
-    					<th>Color</th>
-    					<th>Size</th>
-    					<th>Quantity</th>
-                		<th>Price</th>
-    					<th>Design</th>
-                		<th>Remarks</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				@foreach($order->orderitems as $orderitem)
-	    				<tr>
-	    					<td>{{ $orderitem->item->itemtype->gender }} {{ $orderitem->item->itemtype->type }}</td>
-	    					<td>{{ $orderitem->item->color }}</td>
-	    					<td>{{ $orderitem->item->size }}</td>
-	    					<td>{{ $orderitem->quantity }}</td>
-	    					<td>{{ $orderitem->price }}</td>
-	    					<td>{{ $orderitem->design->name }}</td>
-	    					<td>{{ $orderitem->remarks }}</td>
-	    				</tr>
-    				@endforeach
-    			</tbody>
-    		</table>
-        </div>
+		<br>
+	  <div>
+			<table id="orderTable">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Color</th>
+						<th>Size</th>
+						<th>Quantity</th>
+	            		<th>Price</th>
+						<th>Design</th>
+	            		<th>Remarks</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($order->orderitems as $orderitem)
+	  				<tr>
+	  					<td>{{ $orderitem->item->itemtype->gender }} {{ $orderitem->item->itemtype->type }}</td>
+	  					<td>{{ $orderitem->item->color }}</td>
+	  					<td>{{ $orderitem->item->size }}</td>
+	  					<td>{{ $orderitem->quantity }}</td>
+	  					<td>{{ $orderitem->price }}</td>
+	  					<td>{{ $orderitem->design->name }}</td>
+	  					<td>{{ $orderitem->remarks }}</td>
+	  				</tr>
+					@endforeach
+				</tbody>
+			</table>
+	  </div>
 </body>
 </html>

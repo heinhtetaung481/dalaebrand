@@ -8598,3 +8598,16 @@ tfoot {
   text-transform: uppercase;
 }
 
+h5.modal-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 15px 15px 1px 15px;
+}
+
+.orderLabel {
+  font-weight: bold;
+}
+

@@ -57,79 +57,78 @@
         </button>
       </div>
       <div class="modal-body">
-
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Order ID:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="orderId"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Customer Name:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="cusName"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Phone:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="cusPhone"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Address:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="cusAddress"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Email:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="cusEmail"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Status:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="status"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Discount:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="discount"></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 orderLabel">
               Remarks:
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <span id="remarks"></span>
             </div>
           </div>
-
+          <br/>
 
             <div class="table-responsive">
         			<table class="table table-striped">
