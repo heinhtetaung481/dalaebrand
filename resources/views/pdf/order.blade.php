@@ -4,9 +4,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Order</title>
 	<style>
-		#orderTable,#cusTable{
+		#orderTable{
 			border-collapse: collapse;
     	width: 100%;
+		}
+		#cusTable{
+			border-collapse: collapse;
+    	width: 50%;
 		}
 
 		#orderTable th{
@@ -17,13 +21,16 @@
 	    color: white;
 		}
 
-		#orderTable tr:nth-child(even){
+		/* #orderTable tr:nth-child(even){
 			background-color: #f2f2f2;
-		}
+		} */
 
 		#orderTable td,#orderTable th{
 			border: 1px solid #ddd;
     	padding: 8px;
+		}
+		#orderTable td span.total{
+			float: right;
 		}
 	</style>
 </head>
@@ -59,10 +66,6 @@
 				<td>{{ $order->status }}</td>
 			</tr>
 			<tr>
-				<td>Discount:</td>
-				<td>{{ $order->discount }}</td>
-			</tr>
-			<tr>
 				<td>Remarks:</td>
 				<td>{{ $order->remarks }}</td>
 			</tr>
@@ -77,9 +80,9 @@
     					<th>Color</th>
     					<th>Size</th>
     					<th>Quantity</th>
-                		<th>Price</th>
+              <th>Price</th>
     					<th>Design</th>
-                		<th>Remarks</th>
+              <th>Remarks</th>
     				</tr>
     			</thead>
     			<tbody>
@@ -99,24 +102,25 @@
     				@foreach ($order->orderitems as $orderitem)
 
     					{{ $subtotal += $orderitem->price }}
-    					
+
     				@endforeach
+
     					<tr>
-    						<td colspan=4>Subtotal</td>
-    						<td>{{ $subtotal }}</td>
+    						<td colspan=4><span class="total">Subtotal</span></td>
+    						<td colspan=3>{{ $subtotal }}</td>
     					</tr>
     					<tr>
-    						<td colspan=4>Discount</td>
-    						<td>-{{ $order->discount }}</td>
+    						<td colspan=4><span class="total">Discount</span></td>
+    						<td colspan=3>-{{ $order->discount }}</td>
     					</tr>
     					<tr>
-    						<td colspan=4>Total</td>
-    						<td>{{ $subtotal - $order->discount }}</td>
+    						<td colspan=4><span class="total">Total</span></td>
+    						<td colspan=3>{{ $subtotal - $order->discount }}</td>
     					</tr>
     			</tbody>
     		</table>
         </div>
-		
+
 
 </body>
 </html>

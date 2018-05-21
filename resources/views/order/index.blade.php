@@ -113,15 +113,6 @@
 
           <div class="row">
             <div class="col-md-3 orderLabel">
-              Discount:
-            </div>
-            <div class="col-md-3">
-              <span id="discount"></span>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-3 orderLabel">
               Remarks:
             </div>
             <div class="col-md-3">
@@ -245,9 +236,9 @@
 
                 total = subtotal - data[0].discount
 
-                $('#tbody').append($('<tr><td colspan=4>Subtotal</td><td>'+subtotal+'</td></tr>'));
-                $('#tbody').append($('<tr><td colspan=4>Discount</td><td>-'+data[0].discount+'</td></tr>'));
-                $('#tbody').append($('<tr><td colspan=4>Total</td><td>'+total+'</td></tr>'));
+                $('#tbody').append($('<tr><td class="total" colspan=4><span class="bold pull-right">Subtotal :</span></td><td colspan=3>'+subtotal+'</td></tr>'));
+                $('#tbody').append($('<tr><td class="total" colspan=4><span class="bold pull-right">Discount :</span></td><td class="total" colspan=3>-'+data[0].discount+'</td></tr>'));
+                $('#tbody').append($('<tr><td class="total" colspan=4><span class="bold pull-right">Total :</span></td><td colspan=3>'+total+'</td></tr>'));
 
 
                 $("#orderDetailModal").modal("show");

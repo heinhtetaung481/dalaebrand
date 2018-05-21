@@ -8611,3 +8611,11 @@ h5.modal-title {
   font-weight: bold;
 }
 
+#tbody td.total {
+  background-color: #fff;
+}
+
+.bold {
+  font-weight: bold;
+}
+
