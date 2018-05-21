@@ -59,21 +59,39 @@
         <form method="POST" action="/stock" id="newitem">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="form-control" id="name">
+                <label for="name">Category:</label>
+                <select class="form-control" name="name" id="name">
+                    <option selected value="">Choose category</option>
+                    @php ($i = "")
+                    @foreach($itemtypes as $itemtype)
+                        @if($itemtype->name != $i)
+
+                            <option value="{{ $itemtype->name }}">{{ $itemtype->name }}</option>
+                            @php ($i = $itemtype->name)
+
+                        @endif
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select class="form-control" name="gender" id="gender" onchange="checkGender()">
-                    <option selected>Choose Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option selected value="">Choose Gender</option>
+                    @php ($i = "")
+                    @foreach($itemtypes as $itemtype)
+                        @if($itemtype->gender != $i)
+
+                            <option value="{{ $itemtype->gender }}">{{ $itemtype->gender }}</option>
+                            @php ($i = $itemtype->gender)
+
+                        @endif
+                    @endforeach
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="type">Item Type:</label>
+                <label for="type">Type:</label>
                 <select class="form-control" name="type" id="type">
 
                 </select>
@@ -206,6 +224,8 @@
             }
 
         })
+        }else{
+            $('#type').empty();
         }
     }
 

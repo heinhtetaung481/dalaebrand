@@ -238,6 +238,19 @@
                 $('#tbody tr:last').append($('</tr>'));
 
             	}
+                var subtotal = 0;
+
+                  for (var i = 1; i<data.length; i++){
+                    subtotal += data[i].price
+                  }
+
+                total = subtotal - data[0].discount
+
+                $('#tbody').append($('<tr><td colspan=4>Subtotal</td><td>'+subtotal+'</td></tr>'));
+                $('#tbody').append($('<tr><td colspan=4>Discount</td><td>-'+data[0].discount+'</td></tr>'));
+                $('#tbody').append($('<tr><td colspan=4>Total</td><td>'+total+'</td></tr>'));
+
+
                 $("#orderDetailModal").modal("show");
 
             }

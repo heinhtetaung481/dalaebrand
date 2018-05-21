@@ -23,7 +23,8 @@ class ItemsController extends Controller
 
         // return $dataTable->render('stock.home');
         $items = Item::get();
-        return view('stock.home',compact('items'));
+        $itemtypes = Itemtype::get();
+        return view('stock.home',compact('items','itemtypes'));
     }
 
     /**

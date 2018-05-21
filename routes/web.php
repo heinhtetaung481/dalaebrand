@@ -47,6 +47,8 @@ Route::get('/datatables/stockdata', 'DatatablesController@stockData')->name('dat
 
 Route::get('/datatables/customerdata', 'DatatablesController@customerData')->name('datatables.customerdata');
 
+Route::get('/datatables/itemtypedata', 'DatatablesController@itemtypeData')->name('datatables.itemtypedata');
+
 Route::get('/export/items', 'ExportController@items');
 
 Route::get('/export/orders', 'ExportController@orders');
@@ -62,6 +64,8 @@ Route::get('/customer', 'CustomerController@index');
 Route::delete('/customer/{id}', 'CustomerController@destroy');
 
 Route::get('/pdf/order/{id}', 'PdfexportController@order');
+
+Route::resource('/itemtype', 'ItemtypeController');
 
 
 

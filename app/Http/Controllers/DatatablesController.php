@@ -7,6 +7,7 @@ use Yajra\Datatables\Datatables;
 use App\Order;
 use App\Item;
 use App\Customer;
+use App\Itemtype;
 
 class DatatablesController extends Controller
 {
@@ -96,5 +97,12 @@ class DatatablesController extends Controller
         $customers = Customer::get();
 
         return Datatables::of($customers)->make(true);
+    }
+
+    public function itemtypeData(){
+
+        $itemtypes = Itemtype::get();
+
+        return Datatables::of($itemtypes)->make(true);
     }
 }

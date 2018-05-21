@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td>Date:</td>
-				<td>{{ $order->orderdate }}</td>
+				<td>{{ date('Y-m-d', strtotime($order->orderdate)) }}</td>
 			</tr>
 			<tr>
 				<td>Customer Name:</td>
@@ -93,6 +93,25 @@
 	    					<td>{{ $orderitem->remarks }}</td>
 	    				</tr>
     				@endforeach
+
+    				@php ($subtotal = 0)
+    				@foreach ($order->orderitems as $orderitem)
+
+    					{{ $subtotal += $orderitem->price }}
+    					
+    				@endforeach
+    					<tr>
+    						<td colspan=4>Subtotal</td>
+    						<td>{{ $subtotal }}</td>
+    					</tr>
+    					<tr>
+    						<td colspan=4>Discount</td>
+    						<td>-{{ $order->discount }}</td>
+    					</tr>
+    					<tr>
+    						<td colspan=4>Total</td>
+    						<td>{{ $subtotal - $order->discount }}</td>
+    					</tr>
     			</tbody>
     		</table>
         </div>

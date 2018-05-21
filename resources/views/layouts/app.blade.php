@@ -37,7 +37,9 @@
               <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav show-on-mobile">
                   <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-                  <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Stock</a></li>
+                  <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Product</a></li>
+                  <li>
+                  <li><a href="/itemtype"><span class="glyphicon glyphicon-briefcase"></span> Product Type</a></li>
                   <li>
                     <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>
                     <ul class="nav collapse" id="order-detail">
@@ -87,7 +89,9 @@
 
                   <ul class="nav nav-sidebar" role="navigation">
                     <li><a href="/dashboard"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-                    <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Stock</a></li>
+                    <li><a href="{{ url('/stock') }}"><span class="glyphicon glyphicon-briefcase"></span> Product</a></li>
+                    <li>
+                    <li><a href="/itemtype"><span class="glyphicon glyphicon-briefcase"></span> Product Type</a></li>
                     <li>
                       <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse" data-target="#order-detail2"><span class="glyphicon glyphicon-shopping-cart"></span> Order &nbsp; &nbsp; &nbsp;  	&nbsp;<span class="caret"></span></a>
                       <ul class="nav collapse" id="order-detail2">
