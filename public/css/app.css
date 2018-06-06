@@ -8497,14 +8497,13 @@ footer {
 
 #order-detail,
 #order-detail2,
-#user,
 #design-detail {
   list-style: none;
 }
 
 #order-detail li,
 #order-detail2 li,
-#user li,
+#user-list2 li,
 #design-detail li {
   margin-bottom: 3px;
   margin-left: 20px;
@@ -8512,10 +8511,13 @@ footer {
 
 #order-detail li a,
 #order-detail2 li a,
-#user li a,
 #design-detail li a {
   text-decoration: none;
   font-size: 14px;
+}
+
+#user-list2 li {
+  margin-left: 20px;
 }
 
 /*

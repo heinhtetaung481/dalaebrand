@@ -51,8 +51,8 @@
                   <li><a href="/customer"><span class="glyphicon glyphicon-user">Customer</span></a></li>
                   <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
                   <li>
-                    <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> Users &nbsp; &nbsp; &nbsp;   &nbsp;<span class="caret"></span></a>
-                    <ul class="nav collapse" id="order-detail">
+                    <a href="#user-list" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> Users &nbsp; &nbsp; &nbsp;   &nbsp;<span class="caret"></span></a>
+                    <ul class="nav collapse" id="user-list">
                       <li><a href="{{ route('register') }}">Add New User</a></li>
                       <li><a href="{{ url('#')}}">All Users</a></li>
                     </ul>
@@ -109,8 +109,8 @@
                     <li><a href="/customer"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
                     <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
                     <li>
-                    <a href="#user" class="dropdown-toggle" data-toggle="collapse" data-target="#user"><span class="glyphicon glyphicon-user"></span> Users &nbsp; &nbsp; &nbsp;   &nbsp;<span class="caret"></span></a>
-                    <ul class="nav collapse" id="user">
+                    <a href="#user-list2" class="dropdown-toggle" data-toggle="collapse" data-target="#user-list2"><span class="glyphicon glyphicon-user"></span> Users &nbsp; &nbsp; &nbsp;   &nbsp;<span class="caret"></span></a>
+                    <ul class="nav collapse" id="user-list2">
                       <li><a href="{{ route('register') }}">Add New User</a></li>
                       <li><a href="{{ url('#')}}">All Users</a></li>
                     </ul>

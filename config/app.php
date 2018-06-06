@@ -172,7 +172,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Proengsoft\JsValidation\JsValidationServiceProvider::class,
-        HappyDemon\LaravelParsley\LaravelParsleyServiceProvider::class,
+        //HappyDemon\LaravelParsley\LaravelParsleyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -235,8 +235,8 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
-        'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade',
+        //'Form' => 'Collective\Html\FormFacade',
+        //'Html' => 'Collective\Html\HtmlFacade',
 
     ],
 
