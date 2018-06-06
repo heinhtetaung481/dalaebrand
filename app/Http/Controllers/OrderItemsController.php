@@ -11,6 +11,8 @@ use App\Itemtype;
 use App\Customer;
 use App\Oitemp;
 use App\Design;
+use JsValidator;
+use Illuminate\Support\Facades\Validator;
 
 
 class OrderItemsController extends Controller
@@ -162,8 +164,19 @@ class OrderItemsController extends Controller
 
         $oitemps = Oitemp::get();
 
+        $validator = JsValidator::make([
 
-        return view('order.update', compact('order','oitemps','designs'));
+            'cusName' => 'required',
+            'cusPhone' => 'required|numeric',
+            'cusAddress' => 'required',
+            'cusEmail' => 'required|email',
+            'date' => 'required|date',
+            'discount' => 'nullable|numeric',
+            'status' => 'required'
+        ]);
+
+
+        return view('order.update', compact('order','oitemps','designs','validator'));
     }
 
     /**
@@ -175,7 +188,8 @@ class OrderItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+
+        $v = Validator::make($request->all(), [
 
             'cusName' => 'required',
             'cusPhone' => 'required|numeric',
@@ -185,6 +199,23 @@ class OrderItemsController extends Controller
             'discount' => 'nullable|numeric',
             'status' => 'required'
         ]);
+        // $request->validate([
+
+        //     'cusName' => 'required',
+        //     'cusPhone' => 'required|numeric',
+        //     'cusAddress' => 'required',
+        //     'cusEmail' => 'required|email',
+        //     'date' => 'required|date',
+        //     'discount' => 'nullable|numeric',
+        //     'status' => 'required'
+        // ]);
+
+        if($v->fails()){
+            $oitemp = Oitemp::get();
+
+            
+            return redirect()->back()->withErrors($v->errors());
+        }else{
 
         $order = Order::find($id);
 
@@ -226,7 +257,7 @@ class OrderItemsController extends Controller
 
         $orders = Order::get();
 
-        return redirect('/order');
+        return redirect('/order'); }
     }
 
     /**
@@ -237,20 +268,22 @@ class OrderItemsController extends Controller
      */
     public function destroy($id)
     {
-        $orderitems = Orderitem::where('order_id', $id)->get();
 
-        foreach ($orderitems as $orderitem) {
+        $order = Order::find($id);
+
+        foreach ($order->orderitems as $orderitem) {
             
-            $item = Item::find($orderitem->item_id);
+            $item = $orderitem->item;
 
             $item->quantity = $item->quantity + $orderitem->quantity;
 
             $item->save();
+
+            $orderitem->delete();
         }
 
-        Orderitem::where('order_id', $id)->delete();
-
-        Order::find($id)->delete();
+        $order->delete();
+        $order->customer->delete();
 
         return redirect()->back();
     }

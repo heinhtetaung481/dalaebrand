@@ -136,7 +136,14 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
+        
         $item = Item::find($id);
+        $orderitems = $item->orderitems;
+
+            foreach($orderitems as $orderitem){
+                $orderitem->delete();
+            }
+
         $item->delete();
         return redirect()->back();
     }

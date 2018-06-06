@@ -185,7 +185,7 @@
                 <span style="display:none" class="col-md-3 alert alert-danger" id="error"></span>
     </form>
 </div>
-
+{!! $validator !!}
 <script>
 
 
@@ -397,5 +397,6 @@
     }
 
 </script>
+ {!! $validator !!}
 
 @endsection

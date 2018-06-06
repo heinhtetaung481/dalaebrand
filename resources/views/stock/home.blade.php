@@ -182,12 +182,18 @@
             });
         }
     });
+
+     
 });
 
 </script>
 
 
 <script>
+    function confirmDelete(){
+
+        return confirm("Are you sure you want to delete this item. This will also delete every related products in orders?");
+    }
 
     function stockEdit(id){
 
@@ -228,6 +234,7 @@
             $('#type').empty();
         }
     }
+
 
 </script>
 

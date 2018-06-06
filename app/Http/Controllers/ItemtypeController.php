@@ -104,6 +104,24 @@ class ItemtypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $itemtype = Itemtype::find($id);
+
+        $items = $itemtype->items;
+
+            foreach($items as $item){
+
+                $item->delete();
+
+                foreach($item->orderitems as $orderitem){
+
+                    $orderitem->delete();
+                }
+
+            }
+
+        $itemtype->delete();
+
+        return redirect()->back();
+
     }
 }

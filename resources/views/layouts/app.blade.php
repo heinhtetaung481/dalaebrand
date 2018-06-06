@@ -15,6 +15,7 @@
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 
@@ -49,12 +50,18 @@
                   </li>
                   <li><a href="/customer"><span class="glyphicon glyphicon-user">Customer</span></a></li>
                   <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
+                  <li>
+                    <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> Users &nbsp; &nbsp; &nbsp;   &nbsp;<span class="caret"></span></a>
+                    <ul class="nav collapse" id="order-detail">
+                      <li><a href="{{ route('register') }}">Add New User</a></li>
+                      <li><a href="{{ url('#')}}">All Users</a></li>
+                    </ul>
+                  </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -101,6 +108,13 @@
                     </li>
                     <li><a href="/customer"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
                     <li><a href="{{ url('/design')}}"><span class="glyphicon glyphicon-scissors"></span> Design</a></li>
+                    <li>
+                    <a href="#order-detail" class="dropdown-toggle" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> Users &nbsp; &nbsp; &nbsp;   &nbsp;<span class="caret"></span></a>
+                    <ul class="nav collapse" id="order-detail">
+                      <li><a href="{{ route('register') }}">Add New User</a></li>
+                      <li><a href="{{ url('#')}}">All Users</a></li>
+                    </ul>
+                  </li>
                   </ul>
 
               </div><!--/span-->

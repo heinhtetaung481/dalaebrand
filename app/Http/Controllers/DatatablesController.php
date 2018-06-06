@@ -70,11 +70,10 @@ class DatatablesController extends Controller
 
                 $edit = '<button onclick="stockEdit('.$stock->id.')" class="btn btn-info">Edit</button>';
 
-                $delete = '<form action="/stock/'.$stock->id.'" method="post" style="display:inline;">
+                $delete = '<form action="/stock/'.$stock->id.'" method="post" style="display:inline;" onsubmit="return confirmDelete()">
 
                                                 <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="id" value="'.$stock->id.'">
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger" >Delete</button>
                                         </form>';
 
                 return $edit.$delete;
@@ -103,6 +102,19 @@ class DatatablesController extends Controller
 
         $itemtypes = Itemtype::get();
 
-        return Datatables::of($itemtypes)->make(true);
+        return Datatables::of($itemtypes)
+            ->addColumn('button', function($itemtype) {
+
+                    $delete = '<form action="/itemtype/'.$itemtype->id.'" method="post" style="display:inline;" onsubmit="return confirmDelete()">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger" >Delete</button>
+                                            </form>';
+
+                    return $delete;
+
+
+                })
+            ->rawColumns(['button'])
+            ->make(true);
     }
 }

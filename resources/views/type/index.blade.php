@@ -22,6 +22,7 @@
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>Gender</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -30,6 +31,7 @@
                                 <td class="input_box"></td>
                                 <td class="input_box"></td>
                                 <td class="input_box"></td>
+                                <td class="non-searchable"></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -95,7 +97,8 @@
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'type', name: 'type' },
-            { data: 'gender', name: 'gender' }
+            { data: 'gender', name: 'gender' },
+            { data: 'button', name: 'button' }
         ],
         initComplete: function () {
             this.api().columns().every(function () {
@@ -112,6 +115,11 @@
         }
     });
 });
+
+  function confirmDelete(){
+
+        return confirm("Are you sure you want to delete this product type. This will also delete every related products and orders records?");
+    }
 
 </script>
 @endsection
